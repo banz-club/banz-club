@@ -1,5 +1,6 @@
 "use client";
 
+import { Alert } from "@/components/ui/alert";
 import { DashboardHeader } from "@/components/core/dashboard/header";
 import { StatsOverview } from "@/components/core/dashboard/stats/overview";
 import { ActivityChart } from "@/components/core/dashboard/activity-chart/chart";
@@ -7,8 +8,12 @@ import { ActivityLog } from "@/components/core/dashboard/activity-log/log";
 import { useBanStats } from "@/hooks/use-ban-stats";
 
 export function Dashboard() {
-  const { timeLeft, isFetching, currentStats, history, clearData } =
+  const { timeLeft, isFetching, currentStats, history, clearData, error } =
     useBanStats();
+
+  if (error) {
+    return <Alert variant="destructive">Failed to load ban statistics</Alert>;
+  }
 
   return (
     <div className="flex flex-col gap-4 h-full">
