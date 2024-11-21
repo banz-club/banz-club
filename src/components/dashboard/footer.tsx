@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="shrink-0 py-6 text-center">
+    <footer className="shrink-0 py-6 flex flex-col items-center gap-4">
       <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
         <Link
           href="https://nextjs.org"
@@ -26,6 +26,10 @@ export function Footer() {
           </span>
         </Link>
       </div>
+      <p className="text-xs text-muted-foreground/80 max-w-[500px] text-center px-4">
+        This site is not affiliated with or endorsed by Hypixel Inc. All Hypixel
+        related content and assets are property of Hypixel Inc.
+      </p>
     </footer>
   );
 }
