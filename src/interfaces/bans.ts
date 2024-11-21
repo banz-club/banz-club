@@ -17,4 +17,7 @@ export interface HistoryEntry {
   timestamp: number;
   watchdog_lastMinute: number;
   staff_rollingDaily: number;
+  watchdog_rollingDaily: number;
+  watchdog_bans: number;
+  staff_bans: number;
 }
