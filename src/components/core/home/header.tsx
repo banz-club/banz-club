@@ -11,6 +11,7 @@ import {
 import { GithubIcon } from "lucide-react";
 import { Link } from "next-view-transitions";
 import { Separator } from "@/components/ui/separator";
+import { env } from "@/env";
 
 export function HomeHeader() {
   return (
@@ -41,7 +42,7 @@ export function HomeHeader() {
                     className="h-10 w-10"
                   >
                     <Link
-                      href="https://github.com/kWAYTV/hypixel-bans-tracker-site"
+                      href={env.NEXT_PUBLIC_GITHUB_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

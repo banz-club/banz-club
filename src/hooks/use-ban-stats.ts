@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useStats } from "@/store/use-stats";
 import { fetchBanStats } from "@/data-access/bans";
+import { env } from "@/env";
 
-const POLL_INTERVAL = 60000; // 1 minute in ms
+const POLL_INTERVAL = env.NEXT_PUBLIC_POLL_INTERVAL;
 
 export function useBanStats() {
   const isFirstFetch = useRef(true);
