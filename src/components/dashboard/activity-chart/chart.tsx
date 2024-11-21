@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -22,7 +23,7 @@ interface ActivityChartProps {
   data: HistoryEntry[];
 }
 
-export function ActivityChart({ data }: ActivityChartProps) {
+function ActivityChartComponent({ data }: ActivityChartProps) {
   return (
     <Card className="flex flex-col overflow-hidden">
       <div className="p-4 pb-0 shrink-0">
@@ -37,7 +38,10 @@ export function ActivityChart({ data }: ActivityChartProps) {
         ) : (
           <ChartContainer config={chartConfig}>
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={data}>
+              <LineChart
+                data={data}
+                margin={{ top: 5, right: 5, bottom: 5, left: 0 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis
                   dataKey="timestamp"
@@ -46,7 +50,12 @@ export function ActivityChart({ data }: ActivityChartProps) {
                   tickFormatter={(ts) => new Date(ts).toLocaleTimeString()}
                   minTickGap={50}
                 />
-                <YAxis width={50} tickLine={false} axisLine={false} />
+                <YAxis
+                  width={50}
+                  tickLine={false}
+                  axisLine={false}
+                  tickFormatter={(value) => value.toLocaleString()}
+                />
                 <Tooltip
                   content={<CustomTooltip />}
                   cursor={{ stroke: "hsl(var(--muted))" }}
@@ -59,6 +68,7 @@ export function ActivityChart({ data }: ActivityChartProps) {
                   stroke={chartConfig.watchdog_bans.color}
                   strokeWidth={2}
                   dot={false}
+                  isAnimationActive={false}
                 />
                 <Line
                   type="monotone"
@@ -67,6 +77,7 @@ export function ActivityChart({ data }: ActivityChartProps) {
                   stroke={chartConfig.staff_bans.color}
                   strokeWidth={2}
                   dot={false}
+                  isAnimationActive={false}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -76,3 +87,5 @@ export function ActivityChart({ data }: ActivityChartProps) {
     </Card>
   );
 }
+
+export const ActivityChart = memo(ActivityChartComponent);

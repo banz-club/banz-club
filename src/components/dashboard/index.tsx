@@ -9,18 +9,18 @@ import { Header } from "@/components/dashboard/header";
 import { StatsOverview } from "@/components/dashboard/stats-overview";
 import { ActivityChart } from "@/components/dashboard/activity-chart/chart";
 import { ActivityLog } from "@/components/dashboard/activity-log";
-
-const POLL_INTERVAL = 60000; // 1 minute in ms
+import { CONFIG } from "@/lib/config";
 
 async function fetchBanStats(): Promise<BanStats> {
-  const res = await fetch("https://api.plancke.io/hypixel/v1/punishmentStats");
+  const res = await fetch("/api/stats");
+  if (!res.ok) throw new Error("Failed to fetch stats");
   const data = await res.json();
   return BanStatsSchema.parse(data);
 }
 
 export function Dashboard() {
   const isFirstFetch = useRef(true);
-  const [timeLeft, setTimeLeft] = useState<number>(POLL_INTERVAL);
+  const [timeLeft, setTimeLeft] = useState<number>(CONFIG.POLL_INTERVAL);
   const {
     currentStats,
     history,
@@ -34,8 +34,10 @@ export function Dashboard() {
   const { data, error, isFetching } = useQuery({
     queryKey: ["banStats"],
     queryFn: fetchBanStats,
-    refetchInterval: POLL_INTERVAL,
-    staleTime: POLL_INTERVAL,
+    refetchInterval: CONFIG.POLL_INTERVAL,
+    staleTime: CONFIG.POLL_INTERVAL,
+    retry: 3,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 
   // Update countdown timer
@@ -46,10 +48,10 @@ export function Dashboard() {
         setTimeLeft(left);
 
         if (left === 0) {
-          setTimeLeft(POLL_INTERVAL);
+          setTimeLeft(CONFIG.POLL_INTERVAL);
         }
       }
-    }, 100);
+    }, 1000); // Reduced from 100ms to 1000ms to lower CPU usage
 
     return () => clearInterval(timer);
   }, [nextFetch]);
@@ -60,7 +62,7 @@ export function Dashboard() {
 
     const prevStats = currentStats;
     setCurrentStats(data);
-    setFetchTimes(Date.now(), Date.now() + POLL_INTERVAL);
+    setFetchTimes(Date.now(), Date.now() + CONFIG.POLL_INTERVAL);
 
     if (!isFirstFetch.current && prevStats) {
       const watchdogBans =
@@ -93,9 +95,7 @@ export function Dashboard() {
   return (
     <div className="flex flex-col gap-4 flex-1 max-h-full">
       <Header timeLeft={timeLeft} isUpdating={isFetching} onClear={clearData} />
-
       <StatsOverview stats={currentStats} loading={isFetching} />
-
       <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 min-h-0 flex-1">
         <ActivityChart data={history} />
         <ActivityLog data={history} />
