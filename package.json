@@ -9,6 +9,7 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
+    "@number-flow/react": "^0.3.5",
     "@radix-ui/react-scroll-area": "^1.2.1",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",

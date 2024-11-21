@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { GithubIcon, InfoIcon } from "lucide-react";
 
 import { Link } from "next-view-transitions";
+import NumberFlow from "@number-flow/react";
+import { useEffect, useState } from "react";
 
 interface HeaderProps {
   timeLeft: number;
@@ -18,6 +20,12 @@ interface HeaderProps {
 }
 
 export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
+  const [displayTime, setDisplayTime] = useState(timeLeft / 1000);
+
+  useEffect(() => {
+    setDisplayTime(timeLeft / 1000);
+  }, [timeLeft]);
+
   return (
     <div className="flex items-center justify-between shrink-0">
       <div className="flex flex-col gap-1">
@@ -29,9 +37,13 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
         </p>
       </div>
       <div className="flex items-center gap-4">
-        <div className="text-sm font-medium">
-          Next update in: {(timeLeft / 1000).toFixed(1)}s
-          {isUpdating && " (Updating...)"}
+        <div className="text-sm font-medium tabular-nums">
+          Next update in:{" "}
+          <NumberFlow
+            value={displayTime}
+            format={{ minimumFractionDigits: 1, maximumFractionDigits: 1 }}
+          />
+          s{isUpdating && " (Updating...)"}
         </div>
         <TooltipProvider>
           <Tooltip>
