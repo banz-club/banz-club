@@ -4,7 +4,7 @@ import { z } from "zod";
 export const env = createEnv({
   server: {},
   client: {
-    NEXT_PUBLIC_POLL_INTERVAL: z.number().default(60000),
+    NEXT_PUBLIC_POLL_INTERVAL: z.coerce.number().default(60000),
     NEXT_PUBLIC_GITHUB_URL: z.string().url(),
   },
   runtimeEnv: {
