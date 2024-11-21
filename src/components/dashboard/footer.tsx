@@ -15,7 +15,7 @@ export function Footer() {
         </Link>
         <span>•</span>
         <Link
-          href="https://api.plancke.io"
+          href="https://plancke.io"
           target="_blank"
           rel="noopener noreferrer"
           className="transition-all hover:text-primary hover:drop-shadow-[0_0_8px_rgba(var(--primary),0.3)] group"
