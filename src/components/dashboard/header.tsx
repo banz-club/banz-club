@@ -21,6 +21,10 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
     <div className="flex items-center justify-between shrink-0">
       <h1 className="text-2xl font-bold">Hypixel Ban Statistics</h1>
       <div className="flex items-center gap-4">
+        <div className="text-sm font-medium">
+          Next update in: {(timeLeft / 1000).toFixed(1)}s
+          {isUpdating && " (Updating...)"}
+        </div>
         <button
           onClick={onClear}
           className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-9 px-4"
@@ -28,10 +32,6 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
         >
           Clear Data
         </button>
-        <div className="text-sm font-medium">
-          Next update in: {(timeLeft / 1000).toFixed(1)}s
-          {isUpdating && " (Updating...)"}
-        </div>
         <ModeToggle />
         <TooltipProvider>
           <Tooltip>
@@ -44,9 +44,6 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
                 aria-label="View source code on GitHub"
               >
                 <GithubIcon className="h-5 w-5" />
-                <span className="sr-only">
-                  View Hypixel Bans Tracker source code on GitHub
-                </span>
               </Link>
             </TooltipTrigger>
             <TooltipContent side="bottom" className="font-medium">
