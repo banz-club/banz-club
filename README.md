@@ -9,7 +9,7 @@ A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js 
 - **Detailed Statistics**: Track Watchdog and Staff ban metrics
 - **Activity Log**: Chronological record of ban events
 - **Dark Mode**: Full dark mode support with smooth transitions
-- **Responsive Design**: Works seamlessly on all devices
+- **Responsive Design**: Works decent on all devices
 
 ## 🚀 Getting Started
 
@@ -38,20 +38,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Zustand](https://zustand-demo.pmnd.rs/) - State management
 - [React Query](https://tanstack.com/query/latest) - Server state management
 - [Zod](https://zod.dev/) - Data validation
-
-## 📦 Project Structure
-
-```
-src/
-├── app/                 # Next.js app router
-├── components/         # React components
-│   ├── dashboard/     # Dashboard-specific components
-│   ├── info/          # Information page components
-│   └── ui/            # Reusable UI components
-├── interfaces/        # TypeScript interfaces
-├── lib/              # Utility functions
-└── store/            # Zustand store
-```
 
 ## 📝 API Usage
 
