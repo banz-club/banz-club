@@ -1,3 +1,14 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import { GithubIcon } from "lucide-react";
+
+import Link from "next/link";
+
 interface HeaderProps {
   timeLeft: number;
   isUpdating: boolean;
@@ -19,6 +30,23 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
           Next update in: {(timeLeft / 1000).toFixed(1)}s
           {isUpdating && " (Updating...)"}
         </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href="https://github.com/kWAYTV/hypixel-bans-tracker-site"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full p-2 transition-colors hover:bg-muted flex items-center justify-center group"
+              >
+                <GithubIcon className="h-5 w-5 transition-transform group-hover:scale-110 group-hover:text-primary group-hover:drop-shadow-[0_0_8px_rgba(var(--primary),0.3)]" />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" className="font-medium">
+              View on GitHub
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
     </div>
   );
