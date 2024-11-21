@@ -4,8 +4,8 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         Hypixel Bans Tracker
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        hypixel bans tracker
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-muted-foreground hover:underline">
+        hey! i&apos;m a footer!
       </footer>
     </div>
   );
