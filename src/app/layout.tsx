@@ -1,43 +1,28 @@
-import type { Metadata } from "next";
+import { Providers } from "@/components/providers";
 import localFont from "next/font/local";
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Hypixel Bans Tracker",
-  description: "Track bans by Hypixel Watchdog & Staff",
-};
-
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+      <body className={geistMono.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
+
+export const metadata = {
+  title: "Hypixel Ban Statistics",
+  description: "Real-time tracking of Hypixel ban statistics",
+};

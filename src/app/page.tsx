@@ -1,12 +1,14 @@
+import { Dashboard } from "@/components/dash";
+
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        Hypixel Bans Tracker
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-muted-foreground hover:underline">
-        hey! i&apos;m a footer!
-      </footer>
-    </div>
+    <main className="min-h-screen p-4 md:p-6 lg:p-8">
+      <div className="container mx-auto space-y-6">
+        <h1 className="text-3xl font-bold tracking-tight">
+          Hypixel Ban Statistics
+        </h1>
+        <Dashboard />
+      </div>
+    </main>
   );
 }
