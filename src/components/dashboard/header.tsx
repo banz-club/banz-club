@@ -6,9 +6,9 @@ import {
 } from "@/components/ui/tooltip";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
-import { GithubIcon } from "lucide-react";
+import { GithubIcon, InfoIcon } from "lucide-react";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 interface HeaderProps {
   timeLeft: number;
@@ -23,7 +23,7 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
       <div className="flex items-center gap-4">
         <button
           onClick={onClear}
-          className="text-xs px-3 py-1.5 rounded bg-destructive text-destructive-foreground font-semibold shadow-sm hover:bg-destructive/90 transition-colors"
+          className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-9 px-4"
           aria-label="Clear all tracked data"
         >
           Clear Data
@@ -40,10 +40,10 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
                 href="https://github.com/kWAYTV/hypixel-bans-tracker-site"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full p-2 transition-colors hover:bg-muted flex items-center justify-center group"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9"
                 aria-label="View source code on GitHub"
               >
-                <GithubIcon className="h-5 w-5 transition-transform group-hover:scale-110 group-hover:text-primary group-hover:drop-shadow-[0_0_8px_rgba(var(--primary),0.3)]" />
+                <GithubIcon className="h-5 w-5" />
                 <span className="sr-only">
                   View Hypixel Bans Tracker source code on GitHub
                 </span>
@@ -54,6 +54,12 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
+        <Link
+          href="/info"
+          className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9"
+        >
+          <InfoIcon className="h-5 w-5" />
+        </Link>
       </div>
     </div>
   );
