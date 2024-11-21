@@ -38,6 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Zustand](https://zustand-demo.pmnd.rs/) - State management
 - [React Query](https://tanstack.com/query/latest) - Server state management
 - [Zod](https://zod.dev/) - Data validation
+- [Umami](https://umami.is/) - Metrics
 
 ## 📝 API Usage
 
