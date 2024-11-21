@@ -40,6 +40,7 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
                 onClick={onClear}
                 variant="destructive"
                 aria-label="Clear all tracked data"
+                disabled={isUpdating}
               >
                 Clear Data
               </Button>
@@ -51,9 +52,7 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <div>
-                <ModeToggle />
-              </div>
+              <ModeToggle />
             </TooltipTrigger>
             <TooltipContent side="bottom" className="font-medium">
               Toggle theme
