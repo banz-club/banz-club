@@ -6,9 +6,7 @@ import {
 } from "@/components/ui/tooltip";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "@/components/ui/button";
-
-import { ArrowLeft } from "lucide-react";
-
+import { ArrowLeft, Clock } from "lucide-react";
 import { Link } from "next-view-transitions";
 import NumberFlow from "@number-flow/react";
 import { useEffect, useState } from "react";
@@ -32,48 +30,62 @@ export function DashboardHeader({
 
   return (
     <header className="border-b">
-      <div className="container flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-4">
+      <div className="container px-4 py-2">
+        {/* Top row - Navigation */}
+        <div className="flex items-center justify-between mb-2">
           <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
+            <Button variant="ghost" size="sm" className="h-8 px-2 lg:px-3">
+              <ArrowLeft className="h-4 w-4" />
+              <span className="ml-2 hidden sm:inline">Back</span>
             </Button>
           </Link>
-          <Link href="/" className="hover:opacity-80 transition-opacity">
-            <h1 className="text-xl font-semibold">Hypixel Ban Statistics</h1>
-          </Link>
-          <span className="text-sm text-muted-foreground hidden sm:inline">
-            Next update in:{" "}
-            <NumberFlow
-              value={displayTime}
-              format={{ minimumFractionDigits: 1, maximumFractionDigits: 1 }}
-            />
-            s{isUpdating && " (Updating...)"}
-          </span>
+          <div className="flex items-center gap-2">
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    onClick={onClear}
+                    variant="destructive"
+                    size="sm"
+                    className="h-8 px-2 lg:px-3"
+                    aria-label="Clear all tracked data"
+                    disabled={isUpdating}
+                  >
+                    Clear
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="font-medium">
+                  Clear all tracked statistics
+                </TooltipContent>
+              </Tooltip>
+              <ModeToggle />
+            </TooltipProvider>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  onClick={onClear}
-                  variant="destructive"
-                  size="sm"
-                  aria-label="Clear all tracked data"
-                  disabled={isUpdating}
-                >
-                  Clear
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="font-medium">
-                Clear all tracked statistics
-              </TooltipContent>
-            </Tooltip>
-
-            <ModeToggle />
-          </TooltipProvider>
+        {/* Bottom row - Title and Timer */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-base lg:text-xl font-semibold">
+              Hypixel Ban Statistics
+            </h1>
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Clock className="h-3 w-3 flex-shrink-0" />
+              <NumberFlow
+                value={displayTime}
+                format={{
+                  minimumFractionDigits: 1,
+                  maximumFractionDigits: 1,
+                }}
+              />
+              s
+              {isUpdating && (
+                <span className="text-primary whitespace-nowrap">
+                  (Updating...)
+                </span>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </header>

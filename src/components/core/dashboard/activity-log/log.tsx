@@ -1,8 +1,8 @@
-import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { Bot, Shield } from "lucide-react";
-import type { HistoryEntry } from "@/interfaces/bans";
+import { Card } from "@/components/ui/card";
+import { HistoryEntry } from "@/interfaces/bans";
+import { format } from "date-fns";
+import { Shield, User } from "lucide-react";
 
 interface ActivityLogProps {
   data: HistoryEntry[];
@@ -10,56 +10,40 @@ interface ActivityLogProps {
 
 export function ActivityLog({ data }: ActivityLogProps) {
   return (
-    <Card className="flex flex-col overflow-hidden">
-      <div className="p-4 pb-0 shrink-0">
-        <h2 className="text-lg font-semibold">Activity Log</h2>
-        <Separator className="my-2" />
+    <Card className="h-[400px] overflow-hidden">
+      <div className="p-4 border-b">
+        <h2 className="font-semibold">Activity Log</h2>
       </div>
-      <ScrollArea className="flex-1 px-4">
-        {data.length === 0 ? (
-          <div className="text-sm text-muted-foreground text-center py-8">
-            Waiting for activity data...
-          </div>
-        ) : (
-          data.map((entry) =>
-            entry.watchdog_bans > 0 || entry.staff_bans > 0 ? (
-              <div key={entry.timestamp} className="mb-2 text-sm">
-                <div className="grid gap-2">
-                  {entry.watchdog_bans > 0 && (
-                    <div className="flex items-center gap-2 p-2 rounded-md bg-primary/10 hover:bg-primary/20 transition-colors">
-                      <Bot className="h-4 w-4 text-primary shrink-0" />
-                      <span className="text-xs text-muted-foreground">
-                        {new Date(entry.timestamp).toLocaleTimeString()}
-                      </span>
-                      <span className="grow">
-                        Watchdog banned{" "}
-                        <span className="font-medium text-primary">
-                          {entry.watchdog_bans.toLocaleString()}
-                        </span>{" "}
-                        players
-                      </span>
-                    </div>
-                  )}
-                  {entry.staff_bans > 0 && (
-                    <div className="flex items-center gap-2 p-2 rounded-md bg-destructive/10 hover:bg-destructive/20 transition-colors">
-                      <Shield className="h-4 w-4 text-destructive shrink-0" />
-                      <span className="text-xs text-muted-foreground">
-                        {new Date(entry.timestamp).toLocaleTimeString()}
-                      </span>
-                      <span className="grow">
-                        Staff banned{" "}
-                        <span className="font-medium text-destructive">
-                          {entry.staff_bans.toLocaleString()}
-                        </span>{" "}
-                        players
-                      </span>
-                    </div>
-                  )}
+
+      <ScrollArea className="h-[344px]">
+        <div className="p-4 space-y-2">
+          {data.map((entry) => (
+            <div key={entry.timestamp} className="space-y-1">
+              {entry.watchdog_bans > 0 && (
+                <div className="text-sm flex items-center gap-2">
+                  <span className="font-medium text-muted-foreground">
+                    {format(entry.timestamp, "HH:mm:ss")}
+                  </span>
+                  <Shield className="w-4 h-4 text-primary" />
+                  <span className="text-primary">
+                    Watchdog banned {entry.watchdog_bans}
+                  </span>
                 </div>
-              </div>
-            ) : null
-          )
-        )}
+              )}
+              {entry.staff_bans > 0 && (
+                <div className="text-sm flex items-center gap-2">
+                  <span className="font-medium text-muted-foreground">
+                    {format(entry.timestamp, "HH:mm:ss")}
+                  </span>
+                  <User className="w-4 h-4 text-destructive" />
+                  <span className="text-destructive">
+                    Staff banned {entry.staff_bans}
+                  </span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </ScrollArea>
     </Card>
   );
