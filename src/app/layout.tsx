@@ -2,7 +2,7 @@ import { Providers } from "@/components/providers";
 import localFont from "next/font/local";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
-import { Footer } from "@/components/dashboard/footer";
+import { Footer } from "@/components/core/layout/footer";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",

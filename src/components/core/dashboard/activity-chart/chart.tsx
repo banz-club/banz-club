@@ -14,8 +14,8 @@ import {
   ChartLegend,
   ChartLegendContent,
 } from "@/components/ui/chart";
-import { CustomTooltip } from "@/components/dashboard/activity-chart/tooltip";
-import { chartConfig } from "@/components/dashboard/activity-chart/config";
+import { CustomTooltip } from "@/components/core/dashboard/activity-chart/tooltip";
+import { chartConfig } from "@/components/core/dashboard/activity-chart/config";
 import type { HistoryEntry } from "@/interfaces/bans";
 
 interface ActivityChartProps {

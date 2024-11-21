@@ -1,4 +1,4 @@
-import { StatsCard } from "@/components/dashboard/stats-card";
+import { StatsCard } from "@/components/core/dashboard/stats/card";
 import type { BanStats } from "@/interfaces/bans";
 
 interface StatsOverviewProps {

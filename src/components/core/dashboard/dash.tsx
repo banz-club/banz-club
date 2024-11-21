@@ -5,10 +5,10 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Alert } from "@/components/ui/alert";
 import { useStats } from "@/store/use-stats";
 import { BanStats, BanStatsSchema } from "@/interfaces/bans";
-import { Header } from "@/components/dashboard/header";
-import { StatsOverview } from "@/components/dashboard/stats-overview";
-import { ActivityChart } from "@/components/dashboard/activity-chart/chart";
-import { ActivityLog } from "@/components/dashboard/activity-log";
+import { Header } from "@/components/core/dashboard/header";
+import { StatsOverview } from "@/components/core/dashboard/stats/overview";
+import { ActivityChart } from "@/components/core/dashboard/activity-chart/chart";
+import { ActivityLog } from "@/components/core/dashboard/activity-log/log";
 
 const POLL_INTERVAL = 60000; // 1 minute in ms
 

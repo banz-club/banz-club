@@ -1,6 +1,6 @@
 "use client";
 
-import { InfoContent } from "@/components/info/content";
+import { InfoContent } from "@/components/core/info/content";
 
 export default function InfoPage() {
   return <InfoContent />;

@@ -1,4 +1,4 @@
-import { Dashboard } from "@/components/dashboard";
+import { Dashboard } from "@/components/core/dashboard/dash";
 
 export default function Home() {
   return (
