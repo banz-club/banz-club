@@ -4,19 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Alert } from "@/components/ui/alert";
 import { useStats } from "@/store/use-stats";
-import { BanStats, BanStatsSchema } from "@/interfaces/bans";
 import { DashboardHeader } from "@/components/core/dashboard/header";
 import { StatsOverview } from "@/components/core/dashboard/stats/overview";
 import { ActivityChart } from "@/components/core/dashboard/activity-chart/chart";
 import { ActivityLog } from "@/components/core/dashboard/activity-log/log";
+import { fetchBanStats } from "@/data-access/bans";
 
 const POLL_INTERVAL = 60000; // 1 minute in ms
-
-async function fetchBanStats(): Promise<BanStats> {
-  const res = await fetch("https://api.plancke.io/hypixel/v1/punishmentStats");
-  const data = await res.json();
-  return BanStatsSchema.parse(data);
-}
 
 export function Dashboard() {
   const isFirstFetch = useRef(true);
