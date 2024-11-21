@@ -18,28 +18,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      {env.NEXT_PUBLIC_ENABLE_UMAMI === "true" && (
-        <Script
-          defer
-          src="https://metrics.kway.club/script.js"
-          data-website-id="bad80802-80ec-4a8a-9b6b-60cf60d801c6"
-          strategy="afterInteractive"
-        />
-      )}
-      <ViewTransitions>
-        <html lang="en" suppressHydrationWarning>
-          <body className={geistMono.className}>
-            <Providers>
-              <div className="min-h-screen flex flex-col">
-                {children}
-                <Footer />
-              </div>
-            </Providers>
-          </body>
-        </html>
-      </ViewTransitions>
-    </>
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        {env.NEXT_PUBLIC_ENABLE_UMAMI === "true" && (
+          <Script
+            defer
+            src="https://metrics.kway.club/script.js"
+            data-website-id="bad80802-80ec-4a8a-9b6b-60cf60d801c6"
+            strategy="afterInteractive"
+          />
+        )}
+        <body className={geistMono.className}>
+          <Providers>
+            <div className="min-h-screen flex flex-col">
+              {children}
+              <Footer />
+            </div>
+          </Providers>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
 
