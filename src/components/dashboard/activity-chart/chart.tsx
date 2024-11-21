@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import {
   LineChart,
   Line,
@@ -26,6 +27,7 @@ export function ActivityChart({ data }: ActivityChartProps) {
     <Card className="flex flex-col overflow-hidden">
       <div className="p-4 pb-0 shrink-0">
         <h2 className="text-lg font-semibold">Ban Activity</h2>
+        <Separator className="my-2" />
       </div>
       <div className="flex-1 p-4 min-h-0">
         {data.length === 0 ? (
