@@ -7,7 +7,7 @@ import {
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "@/components/ui/button";
 
-import { GithubIcon, InfoIcon, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 import { Link } from "next-view-transitions";
 import NumberFlow from "@number-flow/react";
@@ -69,42 +69,6 @@ export function DashboardHeader({
               </TooltipTrigger>
               <TooltipContent side="bottom" className="font-medium">
                 Clear all tracked statistics
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  aria-label="View source code on GitHub"
-                  className="h-9 w-9"
-                >
-                  <Link
-                    href="https://github.com/kWAYTV/hypixel-bans-tracker-site"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <GithubIcon className="h-5 w-5" />
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="font-medium">
-                View on GitHub
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" asChild className="h-9 w-9">
-                  <Link href="/info">
-                    <InfoIcon className="h-5 w-5" />
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="font-medium">
-                How it works
               </TooltipContent>
             </Tooltip>
 
