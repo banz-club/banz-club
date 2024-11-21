@@ -19,7 +19,11 @@ interface HeaderProps {
   onClear: () => void;
 }
 
-export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
+export function DashboardHeader({
+  timeLeft,
+  isUpdating,
+  onClear,
+}: HeaderProps) {
   const [displayTime, setDisplayTime] = useState(timeLeft / 1000);
 
   useEffect(() => {

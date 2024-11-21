@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Alert } from "@/components/ui/alert";
 import { useStats } from "@/store/use-stats";
 import { BanStats, BanStatsSchema } from "@/interfaces/bans";
-import { Header } from "@/components/core/dashboard/header";
+import { DashboardHeader } from "@/components/core/dashboard/header";
 import { StatsOverview } from "@/components/core/dashboard/stats/overview";
 import { ActivityChart } from "@/components/core/dashboard/activity-chart/chart";
 import { ActivityLog } from "@/components/core/dashboard/activity-log/log";
@@ -92,7 +92,11 @@ export function Dashboard() {
 
   return (
     <div className="flex flex-col gap-4 h-full">
-      <Header timeLeft={timeLeft} isUpdating={isFetching} onClear={clearData} />
+      <DashboardHeader
+        timeLeft={timeLeft}
+        isUpdating={isFetching}
+        onClear={clearData}
+      />
       <StatsOverview stats={currentStats} loading={isFetching} />
       <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 min-h-0 flex-1 overflow-hidden">
         <ActivityChart data={history} />
