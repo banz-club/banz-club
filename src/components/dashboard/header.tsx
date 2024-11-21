@@ -23,11 +23,12 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
       <div className="flex items-center gap-4">
         <button
           onClick={onClear}
-          className="text-xs px-2 py-1 rounded bg-destructive text-destructive-foreground hover:bg-destructive/90"
+          className="text-xs px-2 py-1 rounded bg-destructive/90 text-destructive-foreground font-medium hover:bg-destructive/100 transition-colors"
+          aria-label="Clear all tracked data"
         >
           Clear Data
         </button>
-        <div className="text-sm text-muted-foreground">
+        <div className="text-sm font-medium text-muted-foreground">
           Next update in: {(timeLeft / 1000).toFixed(1)}s
           {isUpdating && " (Updating...)"}
         </div>

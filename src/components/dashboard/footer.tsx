@@ -15,7 +15,7 @@ export function Footer() {
         </Link>
         <span>•</span>
         <Link
-          href="https://plancke.io"
+          href="https://api.plancke.io"
           target="_blank"
           rel="noopener noreferrer"
           className="transition-all hover:text-primary hover:drop-shadow-[0_0_8px_rgba(var(--primary),0.3)] group"
@@ -26,7 +26,7 @@ export function Footer() {
           </span>
         </Link>
       </div>
-      <p className="text-xs text-muted-foreground/80 max-w-[500px] text-center px-4">
+      <p className="text-xs font-medium text-muted-foreground max-w-[500px] text-center px-4">
         This site is not affiliated with or endorsed by Hypixel Inc. All Hypixel
         related content and assets are property of Hypixel Inc.
       </p>

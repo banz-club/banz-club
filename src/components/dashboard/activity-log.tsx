@@ -12,7 +12,7 @@ export function ActivityLog({ data }: ActivityLogProps) {
   return (
     <Card className="flex flex-col overflow-hidden">
       <div className="p-4 pb-0 shrink-0">
-        <h2 className="text-lg font-semibold">Ban Activity</h2>
+        <h2 className="text-lg font-semibold">Activity Log</h2>
         <Separator className="my-2" />
       </div>
       <ScrollArea className="flex-1 px-4">
