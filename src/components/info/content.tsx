@@ -6,7 +6,7 @@ import { ClientSideInfo } from "@/components/info/client-side-info";
 
 export function InfoContent() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex-1 flex flex-col">
       <InfoHeader />
       <main className="flex-1 flex items-center justify-center p-4">
         <motion.div

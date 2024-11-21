@@ -91,12 +91,10 @@ export function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col gap-4 flex-1 max-h-full">
+    <div className="flex flex-col gap-4 h-full">
       <Header timeLeft={timeLeft} isUpdating={isFetching} onClear={clearData} />
-
       <StatsOverview stats={currentStats} loading={isFetching} />
-
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 min-h-0 flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 min-h-0 flex-1 overflow-hidden">
         <ActivityChart data={history} />
         <ActivityLog data={history} />
       </div>

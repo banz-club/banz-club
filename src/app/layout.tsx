@@ -2,6 +2,7 @@ import { Providers } from "@/components/providers";
 import localFont from "next/font/local";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
+import { Footer } from "@/components/dashboard/footer";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -18,7 +19,12 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body className={geistMono.className}>
-          <Providers>{children}</Providers>
+          <Providers>
+            <div className="min-h-screen flex flex-col">
+              {children}
+              <Footer />
+            </div>
+          </Providers>
         </body>
       </html>
     </ViewTransitions>
