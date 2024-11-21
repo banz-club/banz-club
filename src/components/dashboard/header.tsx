@@ -4,6 +4,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 import { GithubIcon } from "lucide-react";
 
@@ -20,16 +21,17 @@ export function Header({ timeLeft, isUpdating, onClear }: HeaderProps) {
     <div className="flex items-center justify-between shrink-0">
       <h1 className="text-2xl font-bold">Hypixel Ban Statistics</h1>
       <div className="flex items-center gap-4">
+        <div className="text-sm text-muted-foreground">
+          Next update in: {(timeLeft / 1000).toFixed(1)}s
+          {isUpdating && " (Updating...)"}
+        </div>
         <button
           onClick={onClear}
           className="text-xs px-2 py-1 rounded bg-destructive text-destructive-foreground hover:bg-destructive/90"
         >
           Clear Data
         </button>
-        <div className="text-sm text-muted-foreground">
-          Next update in: {(timeLeft / 1000).toFixed(1)}s
-          {isUpdating && " (Updating...)"}
-        </div>
+        <ModeToggle />
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
