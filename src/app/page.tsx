@@ -3,7 +3,7 @@ import { Link } from "next-view-transitions";
 
 export default function Home() {
   return (
-    <main className="container mx-auto p-4 flex flex-col items-center min-h-screen">
+    <main className="container mx-auto p-4 flex flex-col items-center flex-1">
       <HomeHeader />
 
       <div className="flex flex-col items-center justify-center flex-1 gap-8 py-12">
