@@ -7,7 +7,7 @@ import {
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "@/components/ui/button";
 
-import { GithubIcon, InfoIcon } from "lucide-react";
+import { GithubIcon, InfoIcon, ArrowLeft } from "lucide-react";
 
 import { Link } from "next-view-transitions";
 import NumberFlow from "@number-flow/react";
@@ -31,29 +31,29 @@ export function DashboardHeader({
   }, [timeLeft]);
 
   return (
-    <div className="flex flex-col gap-4 shrink-0 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex flex-col gap-1">
-        <Link href="/" className="hover:opacity-80 transition-opacity">
-          <h1 className="text-xl sm:text-2xl font-bold">
-            Hypixel Ban Statistics
-          </h1>
-        </Link>
-        <p className="text-xs sm:text-sm text-muted-foreground">
-          Wondering how this works? Click the info button.
-        </p>
-      </div>
-
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <div className="text-xs sm:text-sm font-medium tabular-nums">
-          Next update in:{" "}
-          <NumberFlow
-            value={displayTime}
-            format={{ minimumFractionDigits: 1, maximumFractionDigits: 1 }}
-          />
-          s{isUpdating && " (Updating...)"}
+    <header className="border-b">
+      <div className="container flex h-16 items-center justify-between px-4">
+        <div className="flex items-center gap-4">
+          <Link href="/">
+            <Button variant="ghost" size="sm">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back
+            </Button>
+          </Link>
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <h1 className="text-xl font-semibold">Hypixel Ban Statistics</h1>
+          </Link>
+          <span className="text-sm text-muted-foreground hidden sm:inline">
+            Next update in:{" "}
+            <NumberFlow
+              value={displayTime}
+              format={{ minimumFractionDigits: 1, maximumFractionDigits: 1 }}
+            />
+            s{isUpdating && " (Updating...)"}
+          </span>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-2">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -63,7 +63,6 @@ export function DashboardHeader({
                   size="sm"
                   aria-label="Clear all tracked data"
                   disabled={isUpdating}
-                  className="sm:size-default"
                 >
                   Clear
                 </Button>
@@ -75,28 +74,19 @@ export function DashboardHeader({
 
             <Tooltip>
               <TooltipTrigger asChild>
-                <ModeToggle />
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="font-medium">
-                Toggle theme
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
                   asChild
                   aria-label="View source code on GitHub"
-                  className="h-8 w-8 sm:h-9 sm:w-9"
+                  className="h-9 w-9"
                 >
                   <Link
                     href="https://github.com/kWAYTV/hypixel-bans-tracker-site"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <GithubIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <GithubIcon className="h-5 w-5" />
                   </Link>
                 </Button>
               </TooltipTrigger>
@@ -107,14 +97,9 @@ export function DashboardHeader({
 
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="h-8 w-8 sm:h-9 sm:w-9"
-                >
+                <Button variant="ghost" size="icon" asChild className="h-9 w-9">
                   <Link href="/info">
-                    <InfoIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <InfoIcon className="h-5 w-5" />
                   </Link>
                 </Button>
               </TooltipTrigger>
@@ -122,9 +107,11 @@ export function DashboardHeader({
                 How it works
               </TooltipContent>
             </Tooltip>
+
+            <ModeToggle />
           </TooltipProvider>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
