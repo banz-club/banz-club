@@ -11,14 +11,14 @@ export function Dashboard() {
     useBanStats();
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col">
       <DashboardHeader
         timeLeft={timeLeft}
         isUpdating={isFetching}
         onClear={clearData}
       />
 
-      <main className="flex-1 container space-y-4 p-4 md:space-y-6 md:p-6">
+      <main className="container space-y-4 p-4 md:space-y-6 md:p-6">
         <StatsOverview stats={currentStats} loading={isFetching} />
 
         <div className="grid gap-4 md:grid-cols-[1fr,300px] lg:grid-cols-[1fr,400px]">
