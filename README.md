@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hypixel Ban Statistics Tracker
 
-## Getting Started
+A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js 14 and Tailwind CSS. Features live updates, interactive visualizations, and detailed metrics tracking.
 
-First, run the development server:
+## 🌟 Features
+
+- **Live Updates**: Automatically fetches new ban data every minute
+- **Interactive Dashboard**: Clean and modern UI with real-time visualizations
+- **Detailed Statistics**: Track Watchdog and Staff ban metrics
+- **Activity Log**: Chronological record of ban events
+- **Dark Mode**: Full dark mode support with smooth transitions
+- **Responsive Design**: Works seamlessly on all devices
+
+## 🚀 Getting Started
+
+First, clone the repository and install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/kWAYTV/hypixel-bans-tracker-site.git
+cd hypixel-bans-tracker-site
+pnpm install
+```
+
+Then, run the development server:
+
+```bash
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Built With
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js 14](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [Recharts](https://recharts.org/) - Charts and visualizations
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management
+- [React Query](https://tanstack.com/query/latest) - Server state management
+- [Zod](https://zod.dev/) - Data validation
 
-## Learn More
+## 📦 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                 # Next.js app router
+├── components/         # React components
+│   ├── dashboard/     # Dashboard-specific components
+│   ├── info/          # Information page components
+│   └── ui/            # Reusable UI components
+├── interfaces/        # TypeScript interfaces
+├── lib/              # Utility functions
+└── store/            # Zustand store
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 API Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses the [Plancke API](https://plancke.io) for fetching Hypixel ban statistics. The data is refreshed every minute to provide real-time updates.
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## ⚠️ Disclaimer
+
+This site is not affiliated with or endorsed by Hypixel Inc. All Hypixel related content and assets are property of Hypixel Inc.
