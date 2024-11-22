@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from "next-view-transitions";
 import { motion } from "framer-motion";
+import { LinkCard } from "@/components/core/home/link-card";
 import { HomeHeader } from "@/components/core/home/header";
 
 export default function Home() {
@@ -35,37 +35,16 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
         >
-          <Link
+          <LinkCard
             href="/dash"
-            className="group relative overflow-hidden rounded-lg border p-8 hover:border-foreground/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 bg-background/50 backdrop-blur-sm"
-          >
-            <motion.div
-              className="flex flex-col gap-2"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <h2 className="text-2xl font-semibold">Dashboard</h2>
-              <p className="text-muted-foreground">
-                View real-time ban statistics and analytics
-              </p>
-            </motion.div>
-          </Link>
-
-          <Link
+            title="Dashboard"
+            description="View real-time ban statistics and analytics"
+          />
+          <LinkCard
             href="/info"
-            className="group relative overflow-hidden rounded-lg border p-8 hover:border-foreground/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 bg-background/50 backdrop-blur-sm"
-          >
-            <motion.div
-              className="flex flex-col gap-2"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <h2 className="text-2xl font-semibold">Information</h2>
-              <p className="text-muted-foreground">
-                Learn more about the project and its features
-              </p>
-            </motion.div>
-          </Link>
+            title="Information"
+            description="Learn more about the project and its features"
+          />
         </motion.div>
       </div>
     </main>
