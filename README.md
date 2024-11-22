@@ -13,6 +13,15 @@ A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js 
 
 ## 🚀 Getting Started
 
+> **Note:** This project uses [Umami](https://umami.is/) for analytics. To
+> enable analytics:
+>
+> 1. Set up your Umami instance
+> 2. Set `NEXT_PUBLIC_ENABLE_UMAMI=true` in your `.env` file
+> 3. Update in `src/app/layout.tsx`:
+>    - `src` attribute with your Umami script URL
+>    - `data-website-id` with your Umami website ID
+
 First, clone the repository and install dependencies:
 
 ```bash
