@@ -5,6 +5,7 @@ import "./globals.css";
 import { Footer } from "@/components/core/layout/footer";
 import Script from "next/script";
 import { env } from "@/env";
+import { createMetadata, baseUrl } from "@/lib/metadata";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -41,7 +42,11 @@ export default function RootLayout({
   );
 }
 
-export const metadata = {
-  title: "Hypixel Ban Statistics",
+export const metadata = createMetadata({
+  title: {
+    template: "%s | Hypixel Ban Statistics",
+    default: "Hypixel Ban Statistics",
+  },
   description: "Real-time tracking of Hypixel ban statistics",
-};
+  metadataBase: baseUrl,
+});
