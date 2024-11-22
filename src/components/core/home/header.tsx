@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GithubIcon } from "lucide-react";
 import { Link } from "next-view-transitions";
-import { env } from "@/env";
 import { motion } from "framer-motion";
+import { githubRepoUrl } from "@/lib/metadata";
 
 export function HomeHeader() {
   return (
@@ -41,7 +41,7 @@ export function HomeHeader() {
             className="hover:scale-105 transition-transform"
           >
             <Link
-              href={env.NEXT_PUBLIC_GITHUB_URL}
+              href={githubRepoUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
