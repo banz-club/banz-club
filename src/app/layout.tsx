@@ -24,7 +24,7 @@ export default function RootLayout({
           <Script
             defer
             src="https://metrics.kway.club/script.js"
-            data-website-id="bad80802-80ec-4a8a-9b6b-60cf60d801c6"
+            data-website-id="cd373fac-72f2-46f9-9892-eb7ff3820b6d"
             strategy="afterInteractive"
           />
         )}
