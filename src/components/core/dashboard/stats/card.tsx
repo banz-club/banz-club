@@ -9,16 +9,22 @@ interface StatsCardProps {
 
 export function StatsCard({ title, value, loading }: StatsCardProps) {
   return (
-    <Card className="p-3 relative overflow-hidden">
-      <div className="text-sm font-medium text-muted-foreground">{title}</div>
-      <div className="mt-1 text-xl font-bold">
-        <NumberFlow value={value} />
+    <Card className="p-3 relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:-translate-y-0.5">
+      <div className="text-sm font-medium text-muted-foreground transition-colors duration-300 group-hover:text-primary">
+        {title}
       </div>
-      {loading && (
-        <div className="absolute inset-0 bg-background/50 backdrop-blur-[1px] flex items-center justify-center">
-          <div className="animate-pulse">Updating...</div>
+      <div className="mt-1 text-xl font-bold relative">
+        <div className={loading ? "opacity-30" : ""}>
+          <NumberFlow value={value} />
         </div>
-      )}
+        {loading && (
+          <div className="absolute inset-0 flex items-center justify-start">
+            <div className="text-primary animate-pulse text-base">
+              Updating...
+            </div>
+          </div>
+        )}
+      </div>
     </Card>
   );
 }
