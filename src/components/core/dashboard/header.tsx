@@ -11,7 +11,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { BackButton } from "@/components/core/ui/back-button";
+import { BackButton } from "@/components/core/reusable/back-button";
 
 interface HeaderProps {
   timeLeft: number;

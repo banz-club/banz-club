@@ -3,7 +3,7 @@ import { Link } from "next-view-transitions";
 
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import { BackButton } from "@/components/core/ui/back-button";
+import { BackButton } from "@/components/core/reusable/back-button";
 
 export function InfoHeader() {
   return (
