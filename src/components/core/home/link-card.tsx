@@ -1,7 +1,7 @@
 "use client";
 
+import { type LucideIcon } from "lucide-react";
 import { Link } from "next-view-transitions";
-import { LucideIcon } from "lucide-react";
 
 import { BorderTrail } from "@/components/motion/border-trail";
 
