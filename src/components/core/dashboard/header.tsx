@@ -35,9 +35,8 @@ export function DashboardHeader({
         {/* Top row - Navigation */}
         <div className="flex items-center justify-between mb-2">
           <Link href="/">
-            <Button variant="ghost" size="sm" className="h-8 px-2 lg:px-3">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="ml-2 hidden sm:inline">Back</span>
+            <Button variant="expandIcon" Icon={ArrowLeft} iconPlacement="left">
+              <span className="ml-1">Back</span>
             </Button>
           </Link>
           <div className="flex items-center gap-2">
