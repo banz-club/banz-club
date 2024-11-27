@@ -11,6 +11,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { BackButton } from "@/components/core/ui/back-button";
 
 interface HeaderProps {
   timeLeft: number;
@@ -34,12 +35,7 @@ export function DashboardHeader({
       <div className="container px-4 py-2">
         {/* Top row - Navigation */}
         <div className="flex items-center justify-between mb-2">
-          <Link href="/">
-            <Button variant="linkHover2">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="ml-1">Back</span>
-            </Button>
-          </Link>
+          <BackButton href="/" />
           <div className="flex items-center gap-2">
             <TooltipProvider>
               <Tooltip>
