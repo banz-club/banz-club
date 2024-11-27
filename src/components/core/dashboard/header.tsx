@@ -1,15 +1,16 @@
+import NumberFlow from "@number-flow/react";
+import { ArrowLeft, Clock } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ModeToggle } from "@/components/ui/mode-toggle";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock } from "lucide-react";
-import { Link } from "next-view-transitions";
-import NumberFlow from "@number-flow/react";
-import { useEffect, useState } from "react";
 
 interface HeaderProps {
   timeLeft: number;

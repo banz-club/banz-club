@@ -1,8 +1,9 @@
-import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { InfoHeader } from "@/components/core/info/header";
-import { Features } from "@/components/core/info/features";
+
 import { ClientSideInfo } from "@/components/core/info/client-side-info";
+import { Features } from "@/components/core/info/features";
+import { InfoHeader } from "@/components/core/info/header";
+import { Card } from "@/components/ui/card";
 
 export function InfoContent() {
   return (

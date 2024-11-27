@@ -1,7 +1,8 @@
 "use client";
 
-import { BorderTrail } from "@/components/motion/border-trail";
 import { Link } from "next-view-transitions";
+
+import { BorderTrail } from "@/components/motion/border-trail";
 
 type LinkCardProps = {
   href: string;

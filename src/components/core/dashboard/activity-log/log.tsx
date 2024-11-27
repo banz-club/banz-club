@@ -1,9 +1,10 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Card } from "@/components/ui/card";
-import { type HistoryEntry } from "@/interfaces/bans";
 import { format } from "date-fns";
 import { Shield, User } from "lucide-react";
+
 import { InView } from "@/components/motion/in-view";
+import { Card } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { type HistoryEntry } from "@/interfaces/bans";
 
 interface ActivityLogProps {
   data: HistoryEntry[];

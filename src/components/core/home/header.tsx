@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import { motion } from "framer-motion";
 import { GithubIcon } from "lucide-react";
 import { Link } from "next-view-transitions";
-import { motion } from "framer-motion";
+
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import { githubRepoUrl } from "@/lib/metadata";
 
 export function HomeHeader() {

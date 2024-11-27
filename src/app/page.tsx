@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LinkCard } from "@/components/core/home/link-card";
+
 import { HomeHeader } from "@/components/core/home/header";
+import { LinkCard } from "@/components/core/home/link-card";
 
 export default function Home() {
   return (

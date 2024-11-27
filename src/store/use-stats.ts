@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 import { type BanStats, type HistoryEntry } from "@/interfaces/bans";
 
 interface StatsState {

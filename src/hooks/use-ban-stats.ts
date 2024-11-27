@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useRef, useState, useCallback } from "react";
-import { useStats } from "@/store/use-stats";
+import { useCallback,useEffect, useRef, useState } from "react";
+
 import { fetchBanStats } from "@/data-access/bans";
 import { env } from "@/env";
+import { useStats } from "@/store/use-stats";
 
 const POLL_INTERVAL = env.NEXT_PUBLIC_POLL_INTERVAL;
 

@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "next-view-transitions";
+
+import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export function InfoHeader() {

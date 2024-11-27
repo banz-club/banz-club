@@ -1,4 +1,5 @@
 import { Bot, Shield } from "lucide-react";
+
 import type { ChartConfig } from "@/components/ui/chart";
 
 export const chartConfig = {

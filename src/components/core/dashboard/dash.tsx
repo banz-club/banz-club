@@ -1,10 +1,11 @@
 "use client";
 
+import { useBanStats } from "@/hooks/use-ban-stats";
+
 import { ActivityChart } from "./activity-chart/chart";
 import { ActivityLog } from "./activity-log/log";
-import { StatsOverview } from "./stats/overview";
 import { DashboardHeader } from "./header";
-import { useBanStats } from "@/hooks/use-ban-stats";
+import { StatsOverview } from "./stats/overview";
 
 export function Dashboard() {
   const { timeLeft, isFetching, currentStats, history, clearData } =

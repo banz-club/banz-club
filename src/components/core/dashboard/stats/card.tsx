@@ -1,5 +1,6 @@
-import { Card } from "@/components/ui/card";
 import NumberFlow from "@number-flow/react";
+
+import { Card } from "@/components/ui/card";
 
 interface StatsCardProps {
   title: string;

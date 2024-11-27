@@ -5,7 +5,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
   "ignorePatterns": ["src/components/ui/**"],
   "rules": {
     "@typescript-eslint/consistent-type-imports": [
@@ -15,6 +15,8 @@
         "fixStyle": "inline-type-imports",
         "disallowTypeAnnotations": true
       }
-    ]
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }
