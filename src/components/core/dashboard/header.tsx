@@ -1,8 +1,8 @@
 import NumberFlow from "@number-flow/react";
-import { ArrowLeft, Clock } from "lucide-react";
-import { Link } from "next-view-transitions";
+import { Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { BackButton } from "@/components/core/reusable/back-button";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import {
@@ -11,7 +11,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { BackButton } from "@/components/core/reusable/back-button";
 
 interface HeaderProps {
   timeLeft: number;
