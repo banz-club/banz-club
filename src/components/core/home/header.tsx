@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Link } from "next-view-transitions";
 
+import SvgLogo from "@/components/core/reusable/svg-logo";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Separator } from "@/components/ui/separator";
@@ -23,9 +24,10 @@ export function HomeHeader() {
         >
           <Link
             href="/"
-            className="text-lg font-semibold hover:opacity-80 transition-all"
+            className="text-lg font-semibold hover:opacity-80 transition-all flex items-center gap-1 md:gap-2"
           >
-            banz.club
+            <SvgLogo />
+            <span className="text-base md:text-lg">banz.club</span>
           </Link>
         </motion.div>
 
