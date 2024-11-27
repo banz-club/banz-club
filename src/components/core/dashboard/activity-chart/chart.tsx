@@ -11,10 +11,9 @@ import {
 } from "recharts";
 import { type Props as LegendProps } from "recharts/types/component/DefaultLegendContent";
 
+import { CustomTooltip } from "@/components/core/dashboard/activity-chart/tooltip";
 import { Card } from "@/components/ui/card";
 import { type HistoryEntry } from "@/interfaces/bans";
-
-import { CustomTooltip } from "@/components/core/dashboard/activity-chart/tooltip";
 
 interface ActivityChartProps {
   data: HistoryEntry[];
