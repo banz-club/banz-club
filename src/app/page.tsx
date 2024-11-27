@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ListIcon, InfoIcon } from "lucide-react";
 
 import { HomeHeader } from "@/components/core/home/header";
 import { LinkCard } from "@/components/core/home/link-card";
@@ -40,11 +41,13 @@ export default function Home() {
             href="/dash"
             title="Dashboard"
             description="View real-time ban statistics and analytics"
+            icon={ListIcon}
           />
           <LinkCard
             href="/info"
             title="Information"
             description="Learn more about the project and its features"
+            icon={InfoIcon}
           />
         </motion.div>
       </div>

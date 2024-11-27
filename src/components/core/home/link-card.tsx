@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "next-view-transitions";
+import { LucideIcon } from "lucide-react";
 
 import { BorderTrail } from "@/components/motion/border-trail";
 
@@ -8,9 +9,15 @@ type LinkCardProps = {
   href: string;
   title: string;
   description: string;
+  icon?: LucideIcon;
 };
 
-export function LinkCard({ href, title, description }: LinkCardProps) {
+export function LinkCard({
+  href,
+  title,
+  description,
+  icon: Icon,
+}: LinkCardProps) {
   return (
     <Link
       href={href}
@@ -30,7 +37,10 @@ export function LinkCard({ href, title, description }: LinkCardProps) {
         }}
       />
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl font-semibold">{title}</h2>
+        <div className="flex items-center gap-3">
+          {Icon && <Icon className="w-6 h-6 text-muted-foreground" />}
+          <h2 className="text-2xl font-semibold">{title}</h2>
+        </div>
         <p className="text-muted-foreground">{description}</p>
       </div>
     </Link>
