@@ -12,19 +12,20 @@ export function Dashboard() {
     useBanStats();
 
   return (
-    <div className="flex flex-col">
+    <div className="flex-1 flex flex-col">
       <DashboardHeader
         timeLeft={timeLeft}
         isUpdating={isFetching}
         onClear={clearData}
       />
+      <main className="flex-1 container mx-auto p-4">
+        <div className="space-y-4 md:space-y-6 md:p-6">
+          <StatsOverview stats={currentStats} loading={isFetching} />
 
-      <main className="container space-y-4 p-4 md:space-y-6 md:p-6">
-        <StatsOverview stats={currentStats} loading={isFetching} />
-
-        <div className="grid gap-4 md:grid-cols-[1fr,300px] lg:grid-cols-[1fr,400px]">
-          <ActivityChart data={history} />
-          <ActivityLog data={history} />
+          <div className="grid gap-4 md:grid-cols-[1fr,300px] lg:grid-cols-[1fr,400px]">
+            <ActivityChart data={history} />
+            <ActivityLog data={history} />
+          </div>
         </div>
       </main>
     </div>
