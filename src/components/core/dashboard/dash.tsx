@@ -2,10 +2,10 @@
 
 import { useBanStats } from "@/hooks/use-ban-stats";
 
-import { ActivityChart } from "./activity-chart/chart";
-import { ActivityLog } from "./activity-log/log";
-import { DashboardHeader } from "./header";
-import { StatsOverview } from "./stats/overview";
+import { ActivityChart } from "@/components/core/dashboard/activity-chart/chart";
+import { ActivityLog } from "@/components/core/dashboard/activity-log/log";
+import { DashboardHeader } from "@/components/core/dashboard/header";
+import { StatsOverview } from "@/components/core/dashboard/stats/overview";
 
 export function Dashboard() {
   const { timeLeft, isFetching, currentStats, history, clearData } =
