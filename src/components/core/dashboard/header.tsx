@@ -39,6 +39,7 @@ export function DashboardHeader({
             <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <Clock className="h-3 w-3" />
+                <span className="hidden sm:inline">Update in:</span>
                 <NumberFlow
                   value={displayTime}
                   format={{
