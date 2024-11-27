@@ -62,9 +62,7 @@ export function DashboardHeader({
         {/* Bottom row - Title and Timer */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-base lg:text-xl font-semibold">
-              Hypixel Ban Statistics
-            </h1>
+            <h1 className="text-base lg:text-xl font-semibold">Dashboard</h1>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Clock className="h-3 w-3 flex-shrink-0" />
               <NumberFlow

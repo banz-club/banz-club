@@ -25,7 +25,7 @@ export function HomeHeader() {
             href="/"
             className="text-lg font-semibold hover:opacity-80 transition-all"
           >
-            Hypixel Bans
+            banz.club
           </Link>
         </motion.div>
 

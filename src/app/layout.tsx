@@ -7,7 +7,7 @@ import { ViewTransitions } from "next-view-transitions";
 import { Footer } from "@/components/core/layout/footer";
 import { Providers } from "@/components/providers";
 import { env } from "@/env";
-import { baseUrl,createMetadata } from "@/lib/metadata";
+import { baseUrl, createMetadata } from "@/lib/metadata";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -46,7 +46,7 @@ export default function RootLayout({
 
 export const metadata = createMetadata({
   title: {
-    template: "%s | Hypixel Ban Statistics",
+    template: "%s | banz.club",
     default: "Hypixel Ban Statistics",
   },
   description: "Real-time tracking of Hypixel ban statistics",
