@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Link } from "next-view-transitions";
 
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Separator } from "@/components/ui/separator";
 import { githubRepoUrl } from "@/lib/metadata";
 
 export function HomeHeader() {
