@@ -10,7 +10,8 @@ export function InfoHeader() {
       <div className="container flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-4">
           <Link href="/">
-            <Button variant="expandIcon" Icon={ArrowLeft} iconPlacement="left">
+            <Button variant="linkHover2">
+              <ArrowLeft className="h-4 w-4" />
               <span className="ml-1">Back</span>
             </Button>
           </Link>
