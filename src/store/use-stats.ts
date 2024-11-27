@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { BanStats, HistoryEntry } from "@/interfaces/bans";
+import { type BanStats, type HistoryEntry } from "@/interfaces/bans";
 
 interface StatsState {
   currentStats: BanStats | null;

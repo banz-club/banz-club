@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { motion, Transition } from "framer-motion";
+import { motion, type Transition } from "framer-motion";
 
 type BorderTrailProps = {
   className?: string;

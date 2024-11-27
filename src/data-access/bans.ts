@@ -1,4 +1,4 @@
-import { BanStats, BanStatsSchema } from "@/interfaces/bans";
+import { type BanStats, BanStatsSchema } from "@/interfaces/bans";
 
 export async function fetchBanStats(): Promise<BanStats> {
   try {

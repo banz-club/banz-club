@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { HistoryEntry } from "@/interfaces/bans";
+import { type HistoryEntry } from "@/interfaces/bans";
 import {
   Area,
   AreaChart,
@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import { format } from "date-fns";
 import { CustomTooltip } from "./tooltip";
-import { Props as LegendProps } from "recharts/types/component/DefaultLegendContent";
+import { type Props as LegendProps } from "recharts/types/component/DefaultLegendContent";
 
 interface ActivityChartProps {
   data: HistoryEntry[];

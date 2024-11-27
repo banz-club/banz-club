@@ -1,11 +1,12 @@
-import { Providers } from "@/components/providers";
+import Script from "next/script";
 import localFont from "next/font/local";
 import { ViewTransitions } from "next-view-transitions";
-import "./globals.css";
+
+import { Providers } from "@/components/providers";
 import { Footer } from "@/components/core/layout/footer";
-import Script from "next/script";
-import { env } from "@/env";
 import { createMetadata, baseUrl } from "@/lib/metadata";
+import { env } from "@/env";
+import "./globals.css";
 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",

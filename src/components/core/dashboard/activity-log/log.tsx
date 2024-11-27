@@ -1,6 +1,6 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
-import { HistoryEntry } from "@/interfaces/bans";
+import { type HistoryEntry } from "@/interfaces/bans";
 import { format } from "date-fns";
 import { Shield, User } from "lucide-react";
 import { InView } from "@/components/motion/in-view";
