@@ -31,48 +31,23 @@ export function DashboardHeader({
 
   return (
     <header className="border-b">
-      <div className="container px-4 py-2">
-        {/* Top row - Navigation */}
-        <div className="flex items-center justify-between mb-2">
+      <div className="w-full px-4 md:px-6 flex h-16 items-center justify-between">
+        <div className="flex items-center gap-2 md:gap-4">
           <BackButton href="/" />
-          <div className="flex items-center gap-2">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    onClick={onClear}
-                    variant="destructive"
-                    size="sm"
-                    className="h-8 px-2 lg:px-3"
-                    aria-label="Clear all tracked data"
-                    disabled={isUpdating}
-                  >
-                    Clear
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom" className="font-medium">
-                  Clear all tracked statistics
-                </TooltipContent>
-              </Tooltip>
-              <ModeToggle />
-            </TooltipProvider>
-          </div>
-        </div>
-
-        {/* Bottom row - Title and Timer */}
-        <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-base lg:text-xl font-semibold">Dashboard</h1>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Clock className="h-3 w-3 flex-shrink-0" />
-              <NumberFlow
-                value={displayTime}
-                format={{
-                  minimumFractionDigits: 1,
-                  maximumFractionDigits: 1,
-                }}
-              />
-              s
+            <h1 className="text-lg md:text-xl font-semibold">Dashboard</h1>
+            <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5">
+                <Clock className="h-3 w-3" />
+                <NumberFlow
+                  value={displayTime}
+                  format={{
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1,
+                  }}
+                />
+                s
+              </div>
               {isUpdating && (
                 <span className="text-primary whitespace-nowrap">
                   (Updating...)
@@ -80,6 +55,28 @@ export function DashboardHeader({
               )}
             </div>
           </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  onClick={onClear}
+                  variant="destructive"
+                  size="sm"
+                  className="px-2 md:px-3"
+                  disabled={isUpdating}
+                >
+                  Clear
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                Clear all tracked statistics
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <ModeToggle />
         </div>
       </div>
     </header>
