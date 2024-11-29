@@ -1,6 +1,6 @@
 import { Cards } from "@/components/core/home/cards";
-import { Hero } from "@/components/core/home/hero";
 import { HomeHeader } from "@/components/core/home/header";
+import { Hero } from "@/components/core/home/hero";
 
 export default function Home() {
   return (
