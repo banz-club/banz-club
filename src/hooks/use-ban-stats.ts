@@ -9,8 +9,8 @@ const POLL_INTERVAL = env.NEXT_PUBLIC_POLL_INTERVAL;
 
 export function useBanStats() {
   const isFirstFetch = useRef(true);
-  const [timeLeft, setTimeLeft] = useState<number>(POLL_INTERVAL);
   const {
+    pollInterval,
     currentStats,
     history,
     nextFetch,
@@ -19,13 +19,23 @@ export function useBanStats() {
     setFetchTimes,
     clearData,
   } = useStats();
+  const [timeLeft, setTimeLeft] = useState<number>(pollInterval);
 
   const { data, error, isFetching, refetch } = useQuery({
     queryKey: ["banStats"],
     queryFn: fetchBanStats,
-    refetchInterval: POLL_INTERVAL,
-    staleTime: POLL_INTERVAL,
+    refetchInterval: pollInterval,
+    staleTime: pollInterval,
   });
+
+  useEffect(() => {
+    if (nextFetch) {
+      const remaining = Math.max(0, nextFetch - Date.now());
+      setTimeLeft(remaining);
+    } else {
+      setTimeLeft(pollInterval);
+    }
+  }, [pollInterval, nextFetch]);
 
   const updateStats = useCallback(() => {
     if (!data) return;
@@ -33,7 +43,7 @@ export function useBanStats() {
     const now = Date.now();
     const prevStats = currentStats;
     setCurrentStats(data);
-    setFetchTimes(now, now + POLL_INTERVAL);
+    setFetchTimes(now, now + pollInterval);
 
     if (!isFirstFetch.current && prevStats) {
       const watchdogDiff =
@@ -53,7 +63,14 @@ export function useBanStats() {
     } else {
       isFirstFetch.current = false;
     }
-  }, [data, currentStats, setCurrentStats, setFetchTimes, addHistoryEntry]);
+  }, [
+    data,
+    currentStats,
+    pollInterval,
+    setCurrentStats,
+    setFetchTimes,
+    addHistoryEntry,
+  ]);
 
   useEffect(() => {
     if (data) {

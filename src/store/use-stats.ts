@@ -12,6 +12,8 @@ interface StatsState {
   setCurrentStats: (stats: BanStats) => void;
   setFetchTimes: (last: number, next: number) => void;
   clearData: () => void;
+  pollInterval: number;
+  setPollInterval: (interval: number) => void;
 }
 
 export const useStats = create<StatsState>((set) => ({
@@ -42,4 +44,6 @@ export const useStats = create<StatsState>((set) => ({
       lastFetch: null,
       nextFetch: null,
     })),
+  pollInterval: 60000,
+  setPollInterval: (interval) => set({ pollInterval: interval }),
 }));

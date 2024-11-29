@@ -11,6 +11,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { PollIntervalSelect } from "./poll-interval-select";
+import { Separator } from "@/components/ui/separator";
 
 interface HeaderProps {
   timeLeft: number;
@@ -59,6 +61,8 @@ export function DashboardHeader({
         </div>
 
         <div className="flex items-center gap-2">
+          <PollIntervalSelect />
+          <Separator orientation="vertical" className="h-6" />
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
