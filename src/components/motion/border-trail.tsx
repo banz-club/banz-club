@@ -1,5 +1,5 @@
 "use client";
-import { motion, type Transition } from "framer-motion";
+import { motion, type Transition } from "motion/react";
 
 import { cn } from "@/lib/utils";
 

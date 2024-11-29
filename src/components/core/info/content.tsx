@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { ClientSideInfo } from "@/components/core/info/client-side-info";
 import { Features } from "@/components/core/info/features";

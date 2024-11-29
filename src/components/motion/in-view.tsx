@@ -5,7 +5,7 @@ import {
   useInView,
   type UseInViewOptions,
   type Variant,
-} from "framer-motion";
+} from "motion/react";
 import { type ReactNode, useRef } from "react";
 
 interface InViewProps {

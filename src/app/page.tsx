@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { InfoIcon, ListIcon } from "lucide-react";
 
 import { HomeHeader } from "@/components/core/home/header";

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Link } from "next-view-transitions";
 
 import SvgLogo from "@/components/core/reusable/svg-logo";
