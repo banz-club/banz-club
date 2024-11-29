@@ -4,6 +4,17 @@ import NumberFlow from "@number-flow/react";
 import { Clock } from "lucide-react";
 
 import { PollIntervalSelect } from "@/components/core/dashboard/interval/poll-interval-select";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -54,14 +65,28 @@ export function DashboardToolbar({ isUpdating, timeLeft }: ToolbarProps) {
         <PollIntervalSelect />
       </div>
 
-      <Button
-        variant="destructive"
-        size="sm"
-        onClick={() => clearData()}
-        className="w-full sm:w-auto"
-      >
-        Clear Data
-      </Button>
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button variant="destructive" size="sm" className="w-full sm:w-auto">
+            Clear Data
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will permanently delete all collected statistics data. This
+              action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={clearData}>
+              Clear Data
+            </AlertDialogAction>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
