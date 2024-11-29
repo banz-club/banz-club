@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const BanStatsSchema = z.object({
   success: z.boolean(),
@@ -7,8 +7,8 @@ export const BanStatsSchema = z.object({
     staff_rollingDaily: z.number(),
     watchdog_total: z.number(),
     watchdog_rollingDaily: z.number(),
-    staff_total: z.number(),
-  }),
+    staff_total: z.number()
+  })
 });
 
 export type BanStats = z.infer<typeof BanStatsSchema>;

@@ -1,6 +1,8 @@
 # Hypixel Ban Statistics Tracker
 
-A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js 14 and Tailwind CSS. Features live updates, interactive visualizations, and detailed metrics tracking.
+A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js
+14 and Tailwind CSS. Features live updates, interactive visualizations, and
+detailed metrics tracking.
 
 ## 🌟 Features
 
@@ -36,7 +38,8 @@ Then, run the development server:
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the
+result.
 
 ## 🛠️ Built With
 
@@ -51,7 +54,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📝 API Usage
 
-This project uses the [Plancke API](https://plancke.io) for fetching Hypixel ban statistics. The data is refreshed every minute to provide real-time updates.
+This project uses the [Plancke API](https://plancke.io) for fetching Hypixel ban
+statistics. The data is refreshed every minute to provide real-time updates.
 
 ## 🤝 Contributing
 
@@ -69,4 +73,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## ⚠️ Disclaimer
 
-This site is not affiliated with or endorsed by Hypixel Inc. All Hypixel related content and assets are property of Hypixel Inc.
+This site is not affiliated with or endorsed by Hypixel Inc. All Hypixel related
+content and assets are property of Hypixel Inc.

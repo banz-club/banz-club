@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { toast } from "sonner";
+import { useQuery } from '@tanstack/react-query';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { toast } from 'sonner';
 
-import { fetchBanStats } from "@/data-access/bans";
-import { useStats } from "@/store/use-stats";
+import { fetchBanStats } from '@/data-access/bans';
+import { useStats } from '@/store/use-stats';
 
 export function useBanStats() {
   const isFirstFetch = useRef(true);
@@ -15,15 +15,15 @@ export function useBanStats() {
     setCurrentStats,
     addHistoryEntry,
     setFetchTimes,
-    clearData,
+    clearData
   } = useStats();
   const [timeLeft, setTimeLeft] = useState<number>(pollInterval);
 
   const { data, error, isFetching, refetch } = useQuery({
-    queryKey: ["banStats"],
+    queryKey: ['banStats'],
     queryFn: fetchBanStats,
     refetchInterval: pollInterval,
-    staleTime: pollInterval,
+    staleTime: pollInterval
   });
 
   useEffect(() => {
@@ -55,17 +55,17 @@ export function useBanStats() {
           staff_rollingDaily: data.record.staff_rollingDaily,
           watchdog_rollingDaily: data.record.watchdog_rollingDaily,
           watchdog_bans: watchdogDiff,
-          staff_bans: staffDiff,
+          staff_bans: staffDiff
         });
 
         toast.success(`${watchdogDiff + staffDiff} new bans`, {
-          description: new Date(now).toLocaleTimeString(),
+          description: new Date(now).toLocaleTimeString()
         });
       }
     } else {
       isFirstFetch.current = false;
-      toast.success("Data refreshed", {
-        description: new Date(now).toLocaleTimeString(),
+      toast.success('Data refreshed', {
+        description: new Date(now).toLocaleTimeString()
       });
     }
   }, [
@@ -74,7 +74,7 @@ export function useBanStats() {
     pollInterval,
     setCurrentStats,
     setFetchTimes,
-    addHistoryEntry,
+    addHistoryEntry
   ]);
 
   useEffect(() => {
@@ -101,6 +101,6 @@ export function useBanStats() {
     history,
     clearData,
     error,
-    refetch,
+    refetch
   };
 }

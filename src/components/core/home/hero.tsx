@@ -1,28 +1,28 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
 export function Hero() {
   return (
-    <div className="flex flex-col items-center justify-center gap-8 py-12">
+    <div className='flex flex-col items-center justify-center gap-8 py-12'>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <motion.h1
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-center bg-gradient-to-r from-primary to-primary/50 text-transparent bg-clip-text"
+          className='bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl lg:text-6xl'
           initial={{
             opacity: 0,
-            y: 20,
+            y: 20
           }}
           animate={{
             opacity: 1,
-            y: 0,
+            y: 0
           }}
           transition={{
             duration: 0.6,
-            ease: "easeOut",
+            ease: 'easeOut'
           }}
         >
           Hypixel Ban Statistics
@@ -30,19 +30,19 @@ export function Hero() {
       </motion.div>
 
       <motion.p
-        className="text-lg md:text-xl text-muted-foreground text-center max-w-2xl"
+        className='max-w-2xl text-center text-lg text-muted-foreground md:text-xl'
         initial={{
           opacity: 0,
-          y: 10,
+          y: 10
         }}
         animate={{
           opacity: 1,
-          y: 0,
+          y: 0
         }}
         transition={{
           duration: 0.5,
           delay: 0.2,
-          ease: "easeOut",
+          ease: 'easeOut'
         }}
       >
         Track Hypixel&apos;s ban activity with real-time updates, detailed

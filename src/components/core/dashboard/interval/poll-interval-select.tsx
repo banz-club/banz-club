@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { Label } from "@/components/ui/label";
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  SelectValue
+} from '@/components/ui/select';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { useStats } from "@/store/use-stats";
+  TooltipTrigger
+} from '@/components/ui/tooltip';
+import { useStats } from '@/store/use-stats';
 
 const intervals = [
-  { value: "30000", label: "30 seconds" },
-  { value: "60000", label: "1 minute" },
-  { value: "300000", label: "5 minutes" },
+  { value: '30000', label: '30 seconds' },
+  { value: '60000', label: '1 minute' },
+  { value: '300000', label: '5 minutes' }
 ];
 
 export function PollIntervalSelect() {
@@ -35,25 +35,25 @@ export function PollIntervalSelect() {
   );
 
   return (
-    <div className="flex flex-col w-full sm:w-auto">
+    <div className='flex w-full flex-col sm:w-auto'>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
             <Label
-              htmlFor="poll-interval"
-              className="text-xs text-muted-foreground mb-1 cursor-help"
+              htmlFor='poll-interval'
+              className='mb-1 cursor-help text-xs text-muted-foreground'
             >
               Refresh Interval
             </Label>
           </TooltipTrigger>
-          <TooltipContent side="bottom">
+          <TooltipContent side='bottom'>
             How often to fetch new data
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
       <Select value={pollInterval.toString()} onValueChange={handleValueChange}>
-        <SelectTrigger id="poll-interval" className="h-8">
-          <SelectValue placeholder="Select interval" />
+        <SelectTrigger id='poll-interval' className='h-8'>
+          <SelectValue placeholder='Select interval' />
         </SelectTrigger>
         <SelectContent>
           {intervals.map(({ value, label }) => (

@@ -2,10 +2,11 @@
   "extends": [
     "next/core-web-vitals",
     "next/typescript",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "simple-import-sort", "prettier"],
   "ignorePatterns": ["src/components/ui/**"],
   "rules": {
     "@typescript-eslint/consistent-type-imports": [
@@ -17,6 +18,7 @@
       }
     ],
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": "error"
   }
 }

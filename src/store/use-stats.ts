@@ -1,6 +1,6 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-import { type BanStats, type HistoryEntry } from "@/interfaces/bans";
+import { type BanStats, type HistoryEntry } from '@/interfaces/bans';
 
 interface StatsState {
   currentStats: BanStats | null;
@@ -16,25 +16,25 @@ interface StatsState {
   setPollInterval: (interval: number) => void;
 }
 
-export const useStats = create<StatsState>((set) => ({
+export const useStats = create<StatsState>(set => ({
   currentStats: null,
   previousStats: null,
   history: [],
   lastFetch: null,
   nextFetch: null,
-  addHistoryEntry: (entry) =>
-    set((state) => ({
-      history: [...state.history.slice(-30), entry],
+  addHistoryEntry: entry =>
+    set(state => ({
+      history: [...state.history.slice(-30), entry]
     })),
-  setCurrentStats: (stats) =>
-    set((state) => ({
+  setCurrentStats: stats =>
+    set(state => ({
       previousStats: state.currentStats,
-      currentStats: stats,
+      currentStats: stats
     })),
   setFetchTimes: (last, next) =>
     set(() => ({
       lastFetch: last,
-      nextFetch: next,
+      nextFetch: next
     })),
   clearData: () =>
     set(() => ({
@@ -42,8 +42,8 @@ export const useStats = create<StatsState>((set) => ({
       previousStats: null,
       history: [],
       lastFetch: null,
-      nextFetch: null,
+      nextFetch: null
     })),
   pollInterval: 60000,
-  setPollInterval: (interval) => set({ pollInterval: interval }),
+  setPollInterval: interval => set({ pollInterval: interval })
 }));
