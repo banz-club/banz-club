@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { InfoIcon, ListIcon } from "lucide-react";
+import { motion } from "motion/react";
 
 import { HomeHeader } from "@/components/core/home/header";
 import { LinkCard } from "@/components/core/home/link-card";
