@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
 import { fetchBanStats } from "@/data-access/bans";
 import { useStats } from "@/store/use-stats";
@@ -56,9 +57,16 @@ export function useBanStats() {
           watchdog_bans: watchdogDiff,
           staff_bans: staffDiff,
         });
+
+        toast.success(`${watchdogDiff + staffDiff} new bans`, {
+          description: new Date(now).toLocaleTimeString(),
+        });
       }
     } else {
       isFirstFetch.current = false;
+      toast.success("Data refreshed", {
+        description: new Date(now).toLocaleTimeString(),
+      });
     }
   }, [
     data,
