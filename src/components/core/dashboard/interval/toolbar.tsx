@@ -3,6 +3,7 @@
 import NumberFlow from "@number-flow/react";
 import { Clock } from "lucide-react";
 
+import { PollIntervalSelect } from "@/components/core/dashboard/interval/poll-interval-select";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -12,8 +13,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useStats } from "@/store/use-stats";
-
-import { PollIntervalSelect } from "./poll-interval-select";
 
 interface ToolbarProps {
   timeLeft: number;

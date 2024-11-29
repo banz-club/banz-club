@@ -3,8 +3,8 @@
 import { ActivityChart } from "@/components/core/dashboard/activity-chart/chart";
 import { ActivityLog } from "@/components/core/dashboard/activity-log/log";
 import { DashboardHeader } from "@/components/core/dashboard/header";
+import { DashboardToolbar } from "@/components/core/dashboard/interval/toolbar";
 import { StatsOverview } from "@/components/core/dashboard/stats/overview";
-import { DashboardToolbar } from "@/components/core/dashboard/toolbar";
 import { useBanStats } from "@/hooks/use-ban-stats";
 
 export function Dashboard() {
