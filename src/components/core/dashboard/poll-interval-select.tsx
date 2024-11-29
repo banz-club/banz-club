@@ -10,6 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useStats } from "@/store/use-stats";
 
 const intervals = [
@@ -29,15 +35,24 @@ export function PollIntervalSelect() {
   );
 
   return (
-    <div className="hidden md:flex flex-col items-end">
-      <Label
-        htmlFor="poll-interval"
-        className="text-xs text-muted-foreground mb-1"
-      >
-        Refresh Interval
-      </Label>
+    <div className="flex flex-col w-full sm:w-auto">
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Label
+              htmlFor="poll-interval"
+              className="text-xs text-muted-foreground mb-1 cursor-help"
+            >
+              Refresh Interval
+            </Label>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">
+            How often to fetch new data
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
       <Select value={pollInterval.toString()} onValueChange={handleValueChange}>
-        <SelectTrigger id="poll-interval" className="h-8 w-[120px]">
+        <SelectTrigger id="poll-interval" className="h-8">
           <SelectValue placeholder="Select interval" />
         </SelectTrigger>
         <SelectContent>
