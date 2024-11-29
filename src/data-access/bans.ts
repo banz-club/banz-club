@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { type BanStats, BanStatsSchema } from "@/interfaces/bans";
 
 export async function fetchBanStats(): Promise<BanStats> {
