@@ -13,7 +13,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { PollIntervalSelect } from "./poll-interval-select";
+import { PollIntervalSelect } from "@/components/core/dashboard/poll-interval-select";
 
 interface HeaderProps {
   timeLeft: number;
