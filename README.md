@@ -71,6 +71,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is open source and available under the [MIT License](LICENSE).
 
+## 🤖 Related Projects
+
+If you find this useful, check out my
+[Hypixel Ban Tracker Discord Bot](https://github.com/kWAYTV/hypixel-ban-tracker-bot) -
+A Discord bot that provides real-time notifications for Hypixel bans directly in
+your server.
+
 ## ⚠️ Disclaimer
 
 This site is not affiliated with or endorsed by Hypixel Inc. All Hypixel related
