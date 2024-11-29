@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback } from "react";
+
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -8,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
 import { useStats } from "@/store/use-stats";
 
 const intervals = [

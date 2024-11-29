@@ -5,14 +5,15 @@ import { useEffect, useState } from "react";
 import { BackButton } from "@/components/core/reusable/back-button";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
 import { PollIntervalSelect } from "./poll-interval-select";
-import { Separator } from "@/components/ui/separator";
 
 interface HeaderProps {
   timeLeft: number;
