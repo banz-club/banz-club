@@ -1,7 +1,7 @@
 # Hypixel Ban Statistics Tracker
 
 A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js
-14 and Tailwind CSS. Features live updates, interactive visualizations, and
+15 and Tailwind CSS. Features live updates, interactive visualizations, and
 detailed metrics tracking.
 
 ## 🌟 Features
@@ -12,6 +12,8 @@ detailed metrics tracking.
 - **Activity Log**: Chronological record of ban events
 - **Dark Mode**: Full dark mode support with smooth transitions
 - **Responsive Design**: Works decent on all devices
+- **Advanced Routing**: Implements Next.js 15 parallel routing and route
+  interception for smooth modal transitions
 
 ## 🚀 Getting Started
 
@@ -43,7 +45,10 @@ result.
 
 ## 🛠️ Built With
 
-- [Next.js 14](https://nextjs.org/) - React framework
+- [Next.js 15](https://nextjs.org/) - React framework
+  - Parallel Routing
+  - Route Interception
+  - App Router
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
 - [shadcn/ui](https://ui.shadcn.com/) - UI components
 - [Recharts](https://recharts.org/) - Charts and visualizations
