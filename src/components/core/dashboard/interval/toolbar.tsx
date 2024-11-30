@@ -43,14 +43,16 @@ export function DashboardToolbar({ isUpdating, timeLeft }: ToolbarProps) {
               <div className='flex items-center gap-1.5 text-sm text-muted-foreground'>
                 <Clock className='h-4 w-4' />
                 <span>Update:</span>
-                <NumberFlow
-                  value={displayTime}
-                  className='font-mono font-medium'
-                  format={{
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1
-                  }}
-                />
+                <div className='w-[3ch] font-mono font-medium'>
+                  <NumberFlow
+                    value={displayTime}
+                    format={{
+                      minimumFractionDigits: 1,
+                      maximumFractionDigits: 1,
+                      useGrouping: false
+                    }}
+                  />
+                </div>
                 s
                 {isUpdating && (
                   <span className='ml-1 text-primary'>(Updating...)</span>

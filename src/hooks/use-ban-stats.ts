@@ -7,6 +7,7 @@ import { useStats } from '@/store/use-stats';
 
 export function useBanStats() {
   const isFirstFetch = useRef(true);
+  const intervalRef = useRef<NodeJS.Timeout>();
   const {
     pollInterval,
     currentStats,
@@ -23,17 +24,39 @@ export function useBanStats() {
     queryKey: ['banStats'],
     queryFn: fetchBanStats,
     refetchInterval: pollInterval,
-    staleTime: pollInterval
+    staleTime: pollInterval,
+    retry: 3
   });
 
-  useEffect(() => {
-    if (nextFetch) {
-      const remaining = Math.max(0, nextFetch - Date.now());
-      setTimeLeft(remaining);
-    } else {
+  const updateTimer = useCallback(() => {
+    if (!nextFetch) {
       setTimeLeft(pollInterval);
+      return;
     }
-  }, [pollInterval, nextFetch]);
+
+    const remaining = Math.max(0, nextFetch - Date.now());
+    setTimeLeft(remaining);
+
+    if (remaining === 0) {
+      refetch();
+    }
+  }, [nextFetch, pollInterval, refetch]);
+
+  useEffect(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    updateTimer();
+
+    intervalRef.current = setInterval(updateTimer, 100);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [updateTimer]);
 
   const updateStats = useCallback(() => {
     if (!data) return;
@@ -83,17 +106,6 @@ export function useBanStats() {
       updateStats();
     }
   }, [data, updateStats]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (nextFetch) {
-        const remaining = Math.max(0, nextFetch - Date.now());
-        setTimeLeft(remaining);
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [nextFetch]);
 
   return {
     timeLeft,
