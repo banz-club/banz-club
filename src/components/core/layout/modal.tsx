@@ -1,10 +1,11 @@
 'use client';
 
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
+import { useCallback } from 'react';
+
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 interface ModalProps {
   children: React.ReactNode;
