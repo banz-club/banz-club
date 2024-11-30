@@ -1,5 +1,5 @@
 import { InfoContent } from '@/components/core/info/content';
 
-export default function InfoPage() {
+export default async function InfoPage() {
   return <InfoContent />;
 }
