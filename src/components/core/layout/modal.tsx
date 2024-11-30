@@ -39,9 +39,9 @@ export function Modal({
       open={defaultOpen}
       onOpenChange={onDismiss}
     >
-      <DialogContent className='max-h-[90vh] max-w-4xl bg-background/95 p-6 backdrop-blur dark:bg-zinc-900/90'>
+      <DialogContent className='absolute left-[50%] top-[50%] flex h-[85vh] w-[90vw] max-w-4xl translate-x-[-50%] translate-y-[-50%] flex-col overflow-hidden rounded-lg border bg-background/95 p-0 shadow-lg backdrop-blur dark:bg-zinc-900/90'>
         <DialogTitle className='sr-only'>Modal Content</DialogTitle>
-        <div className='absolute left-4 top-4'>
+        <div className='flex h-14 items-center justify-between border-b px-4'>
           <motion.button
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -54,10 +54,10 @@ export function Modal({
           </motion.button>
         </div>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className='mt-8'
+          className='flex-1 overflow-y-auto p-4'
         >
           {children}
         </motion.div>
