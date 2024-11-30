@@ -58,7 +58,8 @@ export function useBanStats() {
           staff_bans: staffDiff
         });
 
-        toast.success(`${watchdogDiff + staffDiff} new bans`, {
+        const totalBans = watchdogDiff + staffDiff;
+        toast.success(`${totalBans} new ${totalBans === 1 ? 'ban' : 'bans'}`, {
           description: new Date(now).toLocaleTimeString()
         });
       }
