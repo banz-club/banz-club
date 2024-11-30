@@ -4,6 +4,7 @@ import { type LucideIcon } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 
 import { BorderTrail } from '@/components/motion/border-trail';
+import { Spotlight } from '@/components/motion/spotlight';
 
 type LinkCardProps = {
   href: string;
@@ -23,6 +24,14 @@ export function LinkCard({
       href={href}
       className='group relative overflow-hidden rounded-lg border bg-background/50 p-4 backdrop-blur-sm transition-colors hover:border-foreground/50 sm:p-6 lg:p-8'
     >
+      <Spotlight
+        className='from-primary/20 via-primary/10 to-transparent'
+        size={128}
+        springOptions={{
+          bounce: 0.3,
+          duration: 0.1
+        }}
+      />
       <BorderTrail
         className='bg-gradient-to-r from-primary to-primary/50'
         size={100}
