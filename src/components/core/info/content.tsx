@@ -2,7 +2,6 @@
 
 import { motion } from 'motion/react';
 import { Card } from '@/components/ui/card';
-import { Features } from '@/components/core/info/features';
 import { InfoHeader } from '@/components/core/info/header';
 
 export function InfoContent() {
@@ -34,7 +33,15 @@ export function InfoContent() {
               </ul>
             </section>
 
-            <Features />
+            <section className='space-y-2'>
+              <h2 className='text-lg font-semibold'>Features</h2>
+              <ul className='ml-4 list-inside list-disc space-y-1 text-muted-foreground'>
+                <li>Real-time updates without server calls</li>
+                <li>Smooth animations and transitions</li>
+                <li>Responsive design that works on all devices</li>
+                <li>Dark and light mode support</li>
+              </ul>
+            </section>
 
             <div className='border-t pt-4 text-sm text-muted-foreground'>
               Note: This is a demo application intended to showcase client-side
