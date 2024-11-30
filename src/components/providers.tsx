@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Toaster } from 'sonner';
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient, _setQueryClient] = useState(() => new QueryClient());
 
   return (
     <QueryClientProvider client={queryClient}>
