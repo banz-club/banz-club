@@ -1,4 +1,4 @@
-import { Modal } from '@/components/ui/modal';
+import { Modal } from '@/components/core/layout/modal';
 
 export default function InfoModalLoading() {
   return (

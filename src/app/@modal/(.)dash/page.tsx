@@ -1,5 +1,5 @@
 import { Dashboard } from '@/components/core/dashboard/dash';
-import { Modal } from '@/components/ui/modal';
+import { Modal } from '@/components/core/layout/modal';
 
 export default function DashboardModal() {
   return (
