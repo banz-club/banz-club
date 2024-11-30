@@ -58,9 +58,9 @@ export function Modal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className='flex-1 overflow-y-auto p-4'
+          className='flex flex-1 flex-col overflow-y-auto'
         >
-          {children}
+          <div className='flex min-h-full flex-col p-4'>{children}</div>
         </motion.div>
       </DialogContent>
     </Dialog>
