@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 
 import { InfoHeader } from '@/components/core/info/header';
+
 import { InfoContentServer } from './content-server';
 
 interface InfoContentProps {
