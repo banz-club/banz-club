@@ -25,11 +25,11 @@ const renderLegend = (props: LegendProps) => {
 
   return (
     <div className='flex justify-center gap-4 text-sm text-muted-foreground'>
-      {payload.map((entry, index) => {
+      {payload.map(entry => {
         if (!entry.dataKey) return null;
         const dataKey = String(entry.dataKey);
         return (
-          <div key={index} className='flex items-center gap-2'>
+          <div key={dataKey} className='flex items-center gap-2'>
             <div
               className='h-3 w-3 rounded-full'
               style={{ backgroundColor: entry.color }}
