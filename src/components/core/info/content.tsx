@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Card } from '@/components/ui/card';
+
 import { InfoHeader } from '@/components/core/info/header';
+import { Card } from '@/components/ui/card';
 
 export function InfoContent() {
   return (
