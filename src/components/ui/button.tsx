@@ -53,7 +53,7 @@ interface IconProps {
 
 interface IconRefProps {
   Icon?: never;
-  iconPlacement?: undefined;
+  iconPlacement?: 'left' | 'right';
 }
 
 export interface ButtonProps
