@@ -7,13 +7,17 @@ import { DashboardToolbar } from '@/components/core/dashboard/interval/toolbar';
 import { StatsOverview } from '@/components/core/dashboard/stats/overview';
 import { useBanStats } from '@/hooks/use-ban-stats';
 
-export function Dashboard() {
+interface DashboardProps {
+  isModal?: boolean;
+}
+
+export function Dashboard({ isModal = false }: DashboardProps) {
   const { timeLeft, isFetching, currentStats, history } = useBanStats();
 
   return (
-    <div className='flex flex-1 flex-col'>
-      <DashboardHeader />
-      <main className='container mx-auto flex-1'>
+    <div className={isModal ? '' : 'flex flex-1 flex-col'}>
+      {!isModal && <DashboardHeader />}
+      <main className={isModal ? '' : 'container mx-auto flex-1'}>
         <DashboardToolbar isUpdating={isFetching} timeLeft={timeLeft} />
         <div className='space-y-4 px-4 md:space-y-6 md:p-6'>
           <StatsOverview stats={currentStats} loading={isFetching} />

@@ -15,11 +15,12 @@ const geistMono = localFont({
   weight: '100 900'
 });
 
-export default function RootLayout({
-  children
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+  modal: React.ReactNode;
+}
+
+export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <ViewTransitions>
       <html lang='en' suppressHydrationWarning>
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Providers>
             <div className='flex min-h-screen flex-col'>
               {children}
+              <div className='relative'>{modal}</div>
               <Footer />
             </div>
           </Providers>
