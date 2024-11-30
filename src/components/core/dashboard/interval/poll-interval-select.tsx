@@ -2,6 +2,7 @@
 
 import { useCallback } from 'react';
 
+import { AlertCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import {
   Select,
@@ -36,35 +37,58 @@ export function PollIntervalSelect() {
     [setPollInterval]
   );
 
+  const showWarning = pollInterval < 15000;
+
   return (
     <div className='flex w-full flex-col sm:w-auto'>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Label
-              htmlFor='poll-interval'
-              className='mb-1 cursor-help text-xs text-muted-foreground'
-            >
-              Refresh Interval
-            </Label>
-          </TooltipTrigger>
-          <TooltipContent side='bottom'>
-            How often to fetch new data
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-      <Select value={pollInterval.toString()} onValueChange={handleValueChange}>
-        <SelectTrigger id='poll-interval' className='h-8'>
-          <SelectValue placeholder='Select interval' />
-        </SelectTrigger>
-        <SelectContent>
-          {intervals.map(({ value, label }) => (
-            <SelectItem key={value} value={value}>
-              {label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      <div className='flex flex-col'>
+        <div className='mb-1 flex items-center gap-2'>
+          <div className='flex items-center gap-2'>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Label
+                    htmlFor='poll-interval'
+                    className='cursor-help text-xs text-muted-foreground'
+                  >
+                    Refresh Interval
+                  </Label>
+                </TooltipTrigger>
+                <TooltipContent side='bottom'>
+                  How often to fetch new data
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            {showWarning && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <AlertCircle className='h-3.5 w-3.5 text-destructive' />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Short intervals may cause rate limiting
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+          </div>
+        </div>
+        <Select
+          value={pollInterval.toString()}
+          onValueChange={handleValueChange}
+        >
+          <SelectTrigger id='poll-interval' className='h-8'>
+            <SelectValue placeholder='Select interval' />
+          </SelectTrigger>
+          <SelectContent>
+            {intervals.map(({ value, label }) => (
+              <SelectItem key={value} value={value}>
+                {label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
     </div>
   );
 }
