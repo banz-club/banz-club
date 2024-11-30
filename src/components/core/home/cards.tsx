@@ -3,7 +3,7 @@
 import { InfoIcon, ListIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 
-import { LinkCard } from './link-card';
+import { LinkCard } from '@/components/core/home/link-card';
 
 export function Cards() {
   return (
