@@ -28,5 +28,4 @@ export const baseUrl =
     : new URL(`https://${process.env.VERCEL_URL!}`);
 
 export const githubProfileUrl = 'https://github.com/kWAYTV';
-export const githubRepoUrl =
-  'https://github.com/kWAYTV/hypixel-bans-tracker-site';
+export const githubRepoUrl = 'https://github.com/kWAYTV/banz-club';

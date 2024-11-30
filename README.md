@@ -27,8 +27,8 @@ detailed metrics tracking.
 First, clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/kWAYTV/hypixel-bans-tracker-site.git
-cd hypixel-bans-tracker-site
+git clone https://github.com/kWAYTV/banz-club.git
+cd banz-club
 pnpm install
 ```
 
