@@ -42,7 +42,7 @@ export function DashboardToolbar({ isUpdating, timeLeft }: ToolbarProps) {
             <TooltipTrigger asChild>
               <div className='flex items-center gap-1.5 text-sm text-muted-foreground'>
                 <Clock className='h-4 w-4' />
-                <span>Update in:</span>
+                <span>Update:</span>
                 <NumberFlow
                   value={displayTime}
                   className='font-mono font-medium'

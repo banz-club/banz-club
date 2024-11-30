@@ -19,7 +19,6 @@ import {
 import { useStats } from '@/store/use-stats';
 
 const intervals = [
-  { value: '15000', label: '15 seconds' },
   { value: '30000', label: '30 seconds' },
   { value: '60000', label: '1 minute' },
   { value: '300000', label: '5 minutes' }
