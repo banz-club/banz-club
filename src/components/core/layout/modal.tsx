@@ -58,6 +58,7 @@ export function Modal({
                   transition={{ delay: 0.2 }}
                   onClick={handleFullView}
                   className='group inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground'
+                  tabIndex={-1}
                 >
                   <span>Full view</span>
                   <ArrowUpRight className='h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
