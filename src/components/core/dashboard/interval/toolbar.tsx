@@ -69,9 +69,22 @@ export function DashboardToolbar({ isUpdating, timeLeft }: ToolbarProps) {
 
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant='destructive' size='sm' className='w-full sm:w-auto'>
-            Clear Data
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant='destructive'
+                  size='sm'
+                  className='w-full sm:w-auto'
+                >
+                  Clear Data
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Reset the dashboard to a clean state</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
