@@ -3,32 +3,34 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - master # or 'main' depending on your default branch name
 
+# Prevent multiple release workflows from running in parallel
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+  contents: write # needed for creating releases
+  issues: write # needed for commenting on issues
+  pull-requests: write # needed for commenting on PRs
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Required for semantic-release to analyze all commits
+          persist-credentials: false # Required for semantic-release GitHub plugin
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+          cache: 'pnpm' # Enable built-in pnpm caching
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -36,24 +38,15 @@ jobs:
           version: latest
           run_install: false
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Release with semantic-release
+      - name:
+          Verify the integrity of provenance attestations and registry
+          signatures
+        run: pnpm audit signatures
+
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: pnpm dlx semantic-release
