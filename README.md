@@ -1,6 +1,6 @@
 # Hypixel Ban Statistics Tracker
 
-[![Versioning PR](https://github.com/kWAYTV/banz-club/actions/workflows/release.yml/badge.svg)](https://github.com/kWAYTV/banz-club/actions/workflows/release.yml)
+[![Versioning and Release](https://github.com/kWAYTV/banz-club/actions/workflows/release.yml/badge.svg)](https://github.com/kWAYTV/banz-club/actions/workflows/release.yml)
 
 A real-time dashboard for monitoring Hypixel's ban activity, built with Next.js
 15 and Tailwind CSS. Features live updates, interactive visualizations, and
