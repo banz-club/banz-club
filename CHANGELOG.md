@@ -1,3 +1,10 @@
+# [0.1.0](https://github.com/kWAYTV/banz-club/compare/v0.0.3...v0.1.0) (2024-12-02)
+
+
+### Features
+
+* add Skeleton component for loading state ([14f62ff](https://github.com/kWAYTV/banz-club/commit/14f62ffeb353ade3e1ec1041fd4adbd130a9a61a))
+
 ## [0.0.3](https://github.com/kWAYTV/banz-club/compare/v0.0.2...v0.0.3) (2024-12-02)
 
 
