@@ -3,17 +3,16 @@ name: Release
 on:
   push:
     branches:
-      - master # or 'main' depending on your default branch name
+      - master
 
-# Prevent multiple release workflows from running in parallel
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: write # needed for creating releases
-  issues: write # needed for commenting on issues
-  pull-requests: write # needed for commenting on PRs
+  contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   release:
@@ -23,14 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required for semantic-release to analyze all commits
-          persist-credentials: false # Required for semantic-release GitHub plugin
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          cache: 'pnpm' # Enable built-in pnpm caching
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -38,13 +30,14 @@ jobs:
           version: latest
           run_install: false
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name:
-          Verify the integrity of provenance attestations and registry
-          signatures
-        run: pnpm audit signatures
 
       - name: Release
         env:
