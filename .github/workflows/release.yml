@@ -15,9 +15,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Release with semver
-        uses: huggingface/semver-release-action@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Semver Conventional Commits
+        uses: ietf-tools/semver-action@v1.8.0
         with:
-          branches: '["master"]'
+          token: ${{ secrets.GITHUB_TOKEN }}
