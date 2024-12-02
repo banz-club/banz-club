@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/kWAYTV/banz-club/compare/v1.0.1...v1.1.0) (2024-12-02)
+
+### Features
+
+* **modals:** add default and dashboard/info modals with loading states ([c6a59ba](https://github.com/kWAYTV/banz-club/commit/c6a59ba0f4bcbd0f87b1daddbe53d1e7a96ec0ab))
+
 ## [1.0.2](https://github.com/kWAYTV/banz-club/compare/v1.0.1...v1.0.2) (2024-12-02)
 
 ## [1.0.1](https://github.com/kWAYTV/banz-club/compare/v1.0.0...v1.0.1) (2024-12-02)
