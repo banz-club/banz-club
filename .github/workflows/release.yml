@@ -1,8 +1,8 @@
 name: Release
 on:
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:
   push:
-    branches: ["master"] # Or your default branch
+    branches: ["master"]
 
 jobs:
   release:
@@ -13,4 +13,8 @@ jobs:
           fetch-depth: 0
           
       - name: Semantic Release
-        uses: huggingface/semver-release-action@v1.1.0 
+        uses: huggingface/semver-release-action@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branches: '["master"]'
