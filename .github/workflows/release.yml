@@ -1,0 +1,16 @@
+name: Release
+on:
+  workflow_dispatch:  # Allows manual triggering
+  push:
+    branches: ["master"] # Or your default branch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Semantic Release
+        uses: huggingface/semver-release-action@v1.1.0 
