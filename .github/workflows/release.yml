@@ -1,12 +1,12 @@
 name: Changelog
 
-permissions:
-  contents: write
-
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
   release:
@@ -22,6 +22,15 @@ jobs:
           registry-url: https://registry.npmjs.org/
           node-version: lts/*
 
-      - run: npx changelogithub
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Generate changelog
+        run: pnpm dlx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
