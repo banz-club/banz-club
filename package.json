@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write .",
-    "b": "bumpp"
+    "bump": "bumpp"
   },
   "dependencies": {
     "@number-flow/react": "^0.4.2",
