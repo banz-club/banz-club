@@ -1,43 +1,27 @@
-name: Versioning and Release
+name: Changelog
+
+permissions:
+  contents: write
 
 on:
   push:
     branches:
       - master
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-      
-      - name: Setup Node.js LTS with pnpm
+
+      - name: Set node
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
-          cache: 'pnpm'
-      
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      
-      - name: Release with semantic-release
+          registry-url: https://registry.npmjs.org/
+          node-version: lts/*
+
+      - run: npx changelogithub
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm exec semantic-release
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
