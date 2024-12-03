@@ -59,11 +59,6 @@ result.
 - [Zod](https://zod.dev/) - Data validation
 - [Umami](https://umami.is/) - Metrics
 
-## 🤖 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes and version
-history.
-
 ## 📝 API Usage
 
 This project uses the [Plancke API](https://plancke.io) for fetching Hypixel ban
