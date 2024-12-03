@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/banz-club/banz-club/compare/v0.1.1...v0.1.2) (2024-12-03)
+
+
+### Bug Fixes
+
+* **releaserc:** move .releaserc.json to .releaserc ([ab1c491](https://github.com/banz-club/banz-club/commit/ab1c491523d59a716c9e78f23b53f752b4685ed7))
+
 ## [0.1.1](https://github.com/banz-club/banz-club/compare/v0.1.0...v0.1.1) (2024-12-03)
 
 
