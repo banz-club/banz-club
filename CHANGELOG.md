@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/banz-club/banz-club/compare/v0.1.0...v0.1.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* update README with correct GitHub repository URL for versioning badge ([f981f26](https://github.com/banz-club/banz-club/commit/f981f2662da64e691336d012caa6057ff7a4f876))
+
 # [0.1.0](/compare/v0.0.3...v0.1.0) (2024-12-02)
 
 ### Features
