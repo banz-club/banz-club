@@ -20,7 +20,6 @@ import { Separator } from '@/components/ui/separator';
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
 import { useStats } from '@/store/use-stats';
@@ -37,31 +36,29 @@ export function DashboardToolbar({ isUpdating, timeLeft }: ToolbarProps) {
   return (
     <div className='flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:justify-between'>
       <div className='flex items-center gap-4'>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className='flex items-center gap-1.5 text-sm text-muted-foreground'>
-                <Clock className='h-4 w-4' />
-                <span>Update:</span>
-                <div className='w-[3ch] font-mono font-medium'>
-                  <NumberFlow
-                    value={displayTime}
-                    format={{
-                      minimumFractionDigits: 1,
-                      maximumFractionDigits: 1,
-                      useGrouping: false
-                    }}
-                  />
-                </div>
-                s
-                {isUpdating && (
-                  <span className='ml-1 text-primary'>(Updating...)</span>
-                )}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className='flex items-center gap-1.5 text-sm text-muted-foreground'>
+              <Clock className='h-4 w-4' />
+              <span>Update:</span>
+              <div className='w-[3ch] font-mono font-medium'>
+                <NumberFlow
+                  value={displayTime}
+                  format={{
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1,
+                    useGrouping: false
+                  }}
+                />
               </div>
-            </TooltipTrigger>
-            <TooltipContent>Time until next data refresh</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+              s
+              {isUpdating && (
+                <span className='ml-1 text-primary'>(Updating...)</span>
+              )}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>Time until next data refresh</TooltipContent>
+        </Tooltip>
 
         <Separator orientation='vertical' className='h-5' />
         <PollIntervalSelect />
@@ -69,22 +66,20 @@ export function DashboardToolbar({ isUpdating, timeLeft }: ToolbarProps) {
 
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  variant='destructive'
-                  size='sm'
-                  className='w-full sm:w-auto'
-                >
-                  Clear Data
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Reset the dashboard to a clean state</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant='destructive'
+                size='sm'
+                className='w-full sm:w-auto'
+              >
+                Clear Data
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Reset the dashboard to a clean state</p>
+            </TooltipContent>
+          </Tooltip>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

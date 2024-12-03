@@ -13,7 +13,6 @@ import {
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
 import { useStats } from '@/store/use-stats';
@@ -36,21 +35,19 @@ export function PollIntervalSelect() {
 
   return (
     <div className='flex w-full flex-col sm:w-auto'>
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Label
-              htmlFor='poll-interval'
-              className='mb-1 cursor-help text-xs text-muted-foreground'
-            >
-              Refresh Interval
-            </Label>
-          </TooltipTrigger>
-          <TooltipContent side='bottom'>
-            How often to fetch new data
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Label
+            htmlFor='poll-interval'
+            className='mb-1 cursor-help text-xs text-muted-foreground'
+          >
+            Refresh Interval
+          </Label>
+        </TooltipTrigger>
+        <TooltipContent side='bottom'>
+          How often to fetch new data
+        </TooltipContent>
+      </Tooltip>
       <Select value={pollInterval.toString()} onValueChange={handleValueChange}>
         <SelectTrigger id='poll-interval' className='h-8'>
           <SelectValue placeholder='Select interval' />
