@@ -33,7 +33,7 @@
     "next-view-transitions": "^0.3.4",
     "react": "19.0.0-rc.1",
     "react-dom": "19.0.0-rc.1",
-    "recharts": "^2.14.1",
+    "recharts": "^2.15.0",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
